@@ -1,0 +1,51 @@
+% main.tex
+\documentclass[12pt,oneside]{report}
+
+\input{preamble}
+
+\begin{document}
+
+% =========================
+% Front matter (romanos)
+% =========================
+\pagenumbering{roman}
+
+\input{frontmatter/portada}
+\input{frontmatter/resumen}
+\input{frontmatter/abstract}
+\input{frontmatter/agradecimientos}
+\input{frontmatter/abreviaturas}
+
+\tableofcontents
+\listoffigures
+\listoftables
+\clearpage
+
+% =========================
+% Main matter (arábigos)
+% =========================
+\pagenumbering{arabic}
+
+\include{chapters/ch01}
+\include{chapters/ch02}
+\include{chapters/ch03}
+\include{chapters/ch04}
+\include{chapters/ch05}
+%\include{chapters/ch05a}
+\include{chapters/ch06}
+\include{chapters/ch07}
+
+% =========================
+% Apéndices
+% =========================
+\appendix
+\include{appendices/appA}
+\include{appendices/appB}
+
+% =========================
+% Anexos (si tu institución los distingue)
+% =========================
+\include{annexes/anexoA}
+\include{annexes/anexoB}
+
+\end{document}

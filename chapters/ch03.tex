@@ -1,0 +1,360 @@
+% chapters/ch03.tex
+\chapter{Marco metodológico}
+
+\begin{refsection}
+\addbibresource{references/global.bib}
+\addbibresource{references/ch03.bib}
+
+\section{Arquitectura metodológica de la investigación}
+
+Con el propósito de ofrecer una visión integrada del diseño metodológico de la investigación, se presenta una arquitectura conceptual que sintetiza la relación entre el problema educativo identificado, el marco teórico que fundamenta el estudio, el enfoque metodológico adoptado y el proceso general de investigación orientado al desarrollo y validación del sistema tecnológico propuesto.
+
+La Figura \ref{fig:arquitectura-metodologica} representa la estructura metodológica general del estudio, integrando el enfoque de métodos mixtos, el paradigma pragmático y el diseño de Investigación Basada en el Diseño (\textit{Design-Based Research} -- DBR).
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+font=\footnotesize,
+node distance=12mm,
+box/.style={draw, rounded corners=2mm, align=center, inner sep=7pt, text width=4.5cm},
+big/.style={draw, rounded corners=2mm, align=center, inner sep=9pt, text width=7cm},
+arrow/.style={-{Stealth[length=2.5mm]}, thick}
+]
+
+\node[big] (problem)
+{\textbf{Problema de investigación}\\
+Diagnósticos educativos insuficientes para comprender la diversidad del aprendizaje};
+
+\node[big, below=of problem] (questions)
+{\textbf{Preguntas de investigación}};
+
+\node[big, below=of questions] (theory)
+{\textbf{Marco teórico}\\
+Inclusión educativa\\
+DUA\\
+Educación basada en datos};
+
+\node[big, below=of theory] (method)
+{\textbf{Enfoque metodológico}\\
+Métodos mixtos\\
+Paradigma pragmático};
+
+\node[big, below=of method] (dbr)
+{\textbf{Diseño metodológico}\\
+Design-Based Research};
+
+\node[big, below=of dbr] (results)
+{\textbf{Producción de conocimiento}\\
+Modelo conceptual\\
+Sistema tecnológico\\
+Aportes científicos};
+
+\draw[arrow] (problem) -- (questions);
+\draw[arrow] (questions) -- (theory);
+\draw[arrow] (theory) -- (method);
+\draw[arrow] (method) -- (dbr);
+\draw[arrow] (dbr) -- (results);
+
+\end{tikzpicture}
+}
+\caption{Arquitectura metodológica general de la investigación.}
+\label{fig:arquitectura-metodologica}
+\end{figure}
+
+\section{Enfoque de la investigación}
+
+La investigación se desarrolla bajo un enfoque mixto que integra métodos cuantitativos y cualitativos con el propósito de abordar de manera integral la complejidad del diagnóstico educativo inclusivo mediado por tecnología.
+
+El componente cuantitativo permite analizar datos educativos generados por el sistema tecnológico, identificar patrones de aprendizaje y evaluar indicadores derivados de analítica del aprendizaje.
+
+El componente cualitativo permite comprender las percepciones, experiencias y valoraciones de los actores educativos respecto al uso del sistema, así como las condiciones contextuales que inciden en su implementación.
+
+De acuerdo con \textcite{creswell2018}, los métodos mixtos resultan especialmente pertinentes en investigaciones educativas que diseñan e implementan intervenciones complejas.
+
+\section{Paradigma de investigación}
+
+La investigación se inscribe en un paradigma pragmático. Este paradigma reconoce que la investigación educativa debe orientarse a la resolución de problemas reales y permite integrar diferentes enfoques metodológicos.
+
+Desde esta perspectiva, el valor del conocimiento se vincula tanto a su coherencia teórica como a su utilidad práctica para mejorar procesos educativos \parencite{biesta2010}.
+
+\section{Diseño metodológico: Design-Based Research}
+
+El diseño metodológico adoptado corresponde a la Investigación Basada en el Diseño (DBR).
+
+Este enfoque permite desarrollar y evaluar intervenciones educativas en contextos reales mediante ciclos iterativos de diseño, implementación, análisis y refinamiento.
+
+De acuerdo con \textcite{wang2005}, la DBR se caracteriza por:
+
+\begin{itemize}
+\item el desarrollo de intervenciones educativas innovadoras,
+\item su implementación en contextos reales,
+\item la generación simultánea de conocimiento teórico y práctico,
+\item el refinamiento iterativo basado en evidencia empírica.
+\end{itemize}
+
+\section{Contexto y participantes}
+
+La investigación se desarrolla en un contexto educativo real seleccionado bajo criterios de pertinencia, viabilidad y diversidad educativa.
+
+Los participantes incluyen:
+
+\begin{itemize}
+\item docentes,
+\item estudiantes,
+\item actores institucionales cuando corresponda.
+\end{itemize}
+
+La selección se realiza mediante muestreo intencional.
+
+\section{Instrumentos de recolección de información}
+
+\subsection{Sistema tecnológico como instrumento principal}
+
+El instrumento principal de la investigación es el sistema tecnológico desarrollado. Este sistema cumple simultáneamente dos funciones:
+
+\begin{itemize}
+\item intervención educativa orientada al diagnóstico inclusivo;
+\item instrumento científico para la recolección y análisis de datos educativos.
+\end{itemize}
+
+\subsection{Cuestionarios e instrumentos diagnósticos}
+
+Se utilizan cuestionarios estructurados y semiestructurados para:
+
+\begin{itemize}
+\item caracterizar variables educativas relevantes,
+\item recoger percepciones de los docentes sobre el sistema,
+\item complementar los registros generados por la plataforma.
+\end{itemize}
+
+Estos instrumentos son sometidos a procesos de validación de contenido mediante juicio de expertos \parencite{hernandez2014}.
+
+\subsection{Técnicas cualitativas}
+
+Se emplean técnicas cualitativas como:
+
+\begin{itemize}
+\item entrevistas semiestructuradas,
+\item análisis documental,
+\item observación del uso del sistema.
+\end{itemize}
+
+\section{Procedimiento de la investigación}
+
+El procedimiento se desarrolla en fases coherentes con la lógica iterativa de la DBR:
+
+\begin{enumerate}
+\item análisis del problema educativo,
+\item diseño conceptual del modelo,
+\item desarrollo del sistema tecnológico,
+\item implementación piloto,
+\item recolección de datos,
+\item análisis de resultados,
+\item refinamiento del sistema.
+\end{enumerate}
+
+\section{Técnicas de análisis de la información}
+
+\subsection{Análisis cuantitativo}
+
+Se aplican técnicas de estadística descriptiva y analítica del aprendizaje para identificar patrones relevantes en los datos educativos.
+
+\subsection{Análisis cualitativo}
+
+Se emplea análisis temático de contenido para interpretar las percepciones de los actores educativos.
+
+\subsection{Triangulación}
+
+Los resultados cuantitativos y cualitativos se integran mediante triangulación metodológica.
+
+\section{Marco ético de la investigación}
+
+La investigación incorpora principios éticos relacionados con:
+
+\begin{itemize}
+\item consentimiento informado,
+\item anonimización de datos,
+\item protección de la información,
+\item prevención de prácticas discriminatorias.
+\end{itemize}
+
+Estos principios se alinean con recomendaciones internacionales sobre ética en inteligencia artificial \parencite{unesco2021}.
+
+\section{Criterios de rigor científico}
+
+El rigor del estudio se garantiza mediante:
+
+\begin{itemize}
+\item validez de contenido,
+\item consistencia interna cuando aplica,
+\item triangulación metodológica,
+\item trazabilidad del proceso DBR.
+\end{itemize}
+\section{Trazabilidad integral del diseño de investigación}
+
+Con el propósito de garantizar la coherencia interna del estudio, se presenta una matriz de trazabilidad que articula los principales componentes de la investigación doctoral. Esta matriz permite visualizar la relación entre el problema de investigación, las preguntas planteadas, los objetivos, las variables analizadas, los capítulos de la tesis en los cuales se desarrollan dichos elementos y los resultados obtenidos.
+
+La Tabla \ref{tab:trazabilidad-tesis} sintetiza esta relación.
+
+\begin{APAlongtable}
+{@{}p{3cm}p{3cm}p{3cm}p{3cm}p{2.6cm}p{3cm}@{}}
+{Trazabilidad integral del diseño de investigación doctoral.}
+{tab:trazabilidad-tesis}
+
+\textbf{Problema} &
+\textbf{Pregunta de investigación} &
+\textbf{Objetivo} &
+\textbf{Variable / Dimensión} &
+\textbf{Capítulo de desarrollo} &
+\textbf{Resultado esperado} \\
+\midrule
+\endfirsthead
+
+\toprule
+\textbf{Problema} &
+\textbf{Pregunta de investigación} &
+\textbf{Objetivo} &
+\textbf{Variable / Dimensión} &
+\textbf{Capítulo de desarrollo} &
+\textbf{Resultado esperado} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{6}{r}{\APAtablecontinued}\\
+\endfoot
+
+\endlastfoot
+
+Diagnósticos educativos insuficientes para comprender la diversidad del aprendizaje &
+¿Cuáles son los fundamentos teóricos del diagnóstico educativo inclusivo? &
+Analizar los fundamentos conceptuales del diagnóstico inclusivo &
+Inclusión educativa y equidad &
+Capítulo II: Marco teórico &
+Marco conceptual del diagnóstico inclusivo \\
+
+Diagnósticos educativos tradicionales centrados en medición de rendimiento &
+¿Qué variables deben considerarse para construir un diagnóstico educativo inclusivo basado en datos? &
+Identificar variables pedagógicas, cognitivas y contextuales &
+Variables educativas relevantes &
+Capítulo III: Marco metodológico &
+Modelo de variables para diagnóstico inclusivo \\
+
+Limitada integración entre pedagogía y tecnología educativa &
+¿Cómo diseñar un modelo conceptual de sistema tecnológico de diagnóstico educativo inclusivo? &
+Diseñar el modelo conceptual del sistema &
+Modelo conceptual del sistema &
+Capítulo IV: Arquitectura del sistema &
+Modelo conceptual de diagnóstico basado en datos \\
+
+Limitaciones para analizar datos educativos de forma sistemática &
+¿Cómo integrar analítica del aprendizaje en el diagnóstico educativo? &
+Desarrollar un sistema tecnológico inteligente &
+Sistema tecnológico de diagnóstico &
+Capítulo IV: Sistema tecnológico &
+Prototipo funcional del sistema \\
+
+Dificultad para interpretar datos educativos en la práctica docente &
+¿Cuál es la utilidad pedagógica del sistema en contextos educativos reales? &
+Evaluar la utilidad pedagógica del sistema &
+Utilidad pedagógica del sistema &
+Capítulo V: Resultados &
+Evidencia empírica de uso pedagógico \\
+
+Riesgos éticos asociados al uso de datos educativos &
+¿Qué principios éticos deben incorporarse en el diseño del sistema? &
+Incorporar criterios éticos y de accesibilidad &
+Ética y gobernanza de datos &
+Capítulos III y IV &
+Sistema alineado con principios éticos \\
+
+\end{APAlongtable}
+
+\section{Modelo integrador de la investigación doctoral}
+
+Con el fin de sintetizar la estructura conceptual, metodológica y tecnológica del estudio, se presenta un modelo integrador que representa la lógica general de la investigación doctoral. Este modelo articula el problema educativo identificado, el marco teórico que sustenta el estudio, el enfoque metodológico adoptado, el desarrollo del sistema tecnológico propuesto y los resultados obtenidos.
+
+La Figura \ref{fig:modelo-integrador} resume la arquitectura general de la investigación y muestra cómo cada componente del estudio contribuye a la generación de conocimiento científico aplicable al diagnóstico educativo inclusivo basado en datos.
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[
+font=\footnotesize,
+node distance=14mm,
+box/.style={draw, rounded corners=2mm, align=center, inner sep=8pt, text width=5cm},
+bigbox/.style={draw, rounded corners=2mm, align=center, inner sep=10pt, text width=7cm},
+arrow/.style={-{Stealth[length=2.6mm]}, thick}
+]
+
+% Problema
+\node[bigbox] (problem)
+{\textbf{Problema educativo}\\
+Diagnósticos educativos insuficientes para comprender la diversidad del aprendizaje};
+
+% Marco teórico
+\node[bigbox, below=of problem] (theory)
+{\textbf{Marco teórico}\\
+Inclusión educativa\\
+Diseño Universal para el Aprendizaje (DUA)\\
+Educación basada en datos};
+
+% Metodología
+\node[bigbox, below=of theory] (method)
+{\textbf{Marco metodológico}\\
+Métodos mixtos\\
+Paradigma pragmático\\
+Design-Based Research (DBR)};
+
+% Sistema tecnológico
+\node[bigbox, below=of method] (system)
+{\textbf{Sistema tecnológico inteligente}\\
+Diagnóstico educativo inclusivo basado en analítica de datos};
+
+% Implementación
+\node[box, below left=of system] (implementation)
+{Implementación en contexto educativo real};
+
+% Análisis
+\node[box, below right=of system] (analysis)
+{Análisis cuantitativo y cualitativo de resultados};
+
+% Resultados
+\node[bigbox, below=20mm of system] (results)
+{\textbf{Resultados de la investigación}\\
+Diagnósticos educativos interpretables\\
+Apoyo a la toma de decisiones pedagógicas};
+
+% Aportes
+\node[bigbox, below=of results] (contribution)
+{\textbf{Aportes científicos}\\
+Modelo conceptual de diagnóstico inclusivo\\
+Sistema tecnológico basado en datos\\
+Conocimiento transferible a contextos educativos};
+
+% Flechas
+\draw[arrow] (problem) -- (theory);
+\draw[arrow] (theory) -- (method);
+\draw[arrow] (method) -- (system);
+\draw[arrow] (system) -- (implementation);
+\draw[arrow] (system) -- (analysis);
+\draw[arrow] (implementation) -- (results);
+\draw[arrow] (analysis) -- (results);
+\draw[arrow] (results) -- (contribution);
+
+\end{tikzpicture}
+}
+
+\caption{Modelo integrador de la investigación doctoral.}
+\label{fig:modelo-integrador}
+\end{figure}
+
+Como se observa en la Figura \ref{fig:modelo-integrador}, la investigación se estructura a partir de la identificación de un problema educativo relacionado con las limitaciones de los diagnósticos educativos tradicionales para comprender la diversidad del aprendizaje. Este problema se aborda mediante un marco teórico que integra los enfoques de inclusión educativa, Diseño Universal para el Aprendizaje y educación basada en datos.
+
+Sobre esta base conceptual se adopta un enfoque metodológico de métodos mixtos dentro de un paradigma pragmático, implementado mediante la metodología de Investigación Basada en el Diseño. Este enfoque permite diseñar, implementar y refinar un sistema tecnológico inteligente orientado al diagnóstico educativo inclusivo.
+
+La implementación del sistema en un contexto educativo real permite obtener evidencia empírica sobre su funcionamiento y utilidad pedagógica. A partir del análisis de los resultados se generan aportes científicos orientados al desarrollo de herramientas tecnológicas capaces de apoyar la toma de decisiones educativas basadas en evidencia y promover prácticas pedagógicas inclusivas.
+\printbibliography[heading=subbibliography,title={Referencias (Capítulo III)}]
+
+\end{refsection}

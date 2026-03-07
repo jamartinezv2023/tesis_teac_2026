@@ -1,0 +1,319 @@
+% chapters/ch05.tex
+\chapter{Modelo de diagnóstico educativo inclusivo basado en datos}
+
+\begin{refsection}
+\addbibresource{references/ch05.bib}
+
+\section{Fundamentación del modelo}
+
+El diagnóstico educativo constituye un componente esencial en los procesos de enseñanza y aprendizaje, particularmente en contextos educativos orientados a la inclusión. A través del diagnóstico es posible identificar características del aprendizaje, reconocer necesidades educativas diversas y orientar decisiones pedagógicas que favorezcan la equidad, la participación y la eliminación de barreras para el aprendizaje.
+
+Tradicionalmente, los diagnósticos educativos se han apoyado en evaluaciones estandarizadas, pruebas psicométricas o apreciaciones docentes derivadas de la observación del desempeño académico. Si bien estos enfoques aportan información relevante para comprender determinados aspectos del aprendizaje, presentan limitaciones cuando se trata de explicar la complejidad de los procesos educativos en contextos caracterizados por diversidad cultural, cognitiva y socioeducativa. En particular, los diagnósticos basados exclusivamente en resultados agregados o en mediciones puntuales pueden invisibilizar dinámicas del aprendizaje que son situadas, longitudinales y sensibles al contexto.
+
+En el marco de la sociedad del conocimiento, el uso creciente de tecnologías digitales en educación abre posibilidades para complementar los enfoques diagnósticos tradicionales mediante sistemas tecnológicos capaces de recopilar, integrar, analizar e interpretar evidencia educativa de manera sistemática. Estos sistemas permiten articular múltiples fuentes de información (p.\ ej., cuestionarios, registros de interacción, observaciones estructuradas y datos contextuales) y aplicar técnicas de analítica del aprendizaje (\textit{Learning Analytics}) orientadas a identificar patrones, construir perfiles de aprendizaje y sustentar decisiones pedagógicas basadas en evidencia.
+
+El modelo propuesto en esta investigación se fundamenta en la articulación entre tres enfoques conceptuales desarrollados en el marco teórico (Capítulo II):
+
+\begin{itemize}
+\item la inclusión educativa como principio orientador que promueve la equidad, la participación y la eliminación de barreras para el aprendizaje;
+\item el Diseño Universal para el Aprendizaje (\DUA) como marco pedagógico que propone anticipar la diversidad del alumnado mediante múltiples medios de representación, acción/expresión y compromiso;
+\item la educación basada en datos y la analítica del aprendizaje como enfoques metodológicos que permiten transformar evidencia educativa en conocimiento pedagógico útil y accionable.
+\end{itemize}
+
+A partir de esta articulación conceptual, la presente investigación propone un modelo de diagnóstico educativo inclusivo basado en datos que integra múltiples fuentes de información y utiliza herramientas de analítica del aprendizaje para apoyar la identificación de necesidades educativas y la generación de recomendaciones pedagógicas contextualizadas. El modelo se concibe como un sistema dinámico de producción de conocimiento pedagógico, en el cual los datos recopilados se transforman progresivamente en diagnósticos interpretables orientados a mejorar los procesos de enseñanza y aprendizaje y a sustentar decisiones pedagógicas inclusivas.
+
+\section{Estructura general del modelo}
+
+El modelo de diagnóstico educativo inclusivo basado en datos se estructura como un proceso sistemático que integra la recopilación de información educativa, el análisis de datos mediante técnicas de analítica del aprendizaje y la generación de diagnósticos pedagógicos orientados a la inclusión educativa.
+
+Desde una perspectiva conceptual, el modelo integra cuatro niveles principales:
+
+\begin{itemize}
+\item \textbf{Recopilación de datos educativos} provenientes de diversas fuentes (instrumentos diagnósticos, registros del sistema, y datos contextuales).
+\item \textbf{Procesamiento y análisis} mediante técnicas de analítica del aprendizaje y construcción de indicadores.
+\item \textbf{Generación de diagnósticos inclusivos} que describen barreras, fortalezas y necesidades de apoyo sin incurrir en etiquetado estigmatizante.
+\item \textbf{Apoyo a la toma de decisiones pedagógicas} mediante recomendaciones alineadas con el \DUA\ y con prácticas inclusivas.
+\end{itemize}
+
+Este modelo se concibe como un proceso dinámico en el cual la información recopilada sobre los estudiantes se transforma en conocimiento pedagógico útil para docentes e instituciones educativas. La Figura \ref{fig:modelo-diagnostico} presenta su estructura general.
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  font=\footnotesize,
+  node distance=14mm,
+  block/.style={draw, rounded corners=2mm, align=center, inner sep=8pt, text width=4cm},
+  center/.style={draw, rounded corners=2mm, align=center, inner sep=10pt, text width=6cm},
+  arrow/.style={-{Stealth[length=2.6mm]}, thick}
+]
+
+\node[block] (students)
+{Datos educativos del estudiante\\
+Características personales\\
+Contexto educativo};
+
+\node[block, below=of students] (instruments)
+{Instrumentos diagnósticos\\
+Cuestionarios educativos\\
+Registros del sistema};
+
+\node[center, below=of instruments] (analytics)
+{Analítica del aprendizaje\\
+Procesamiento de datos educativos};
+
+\node[center, below=of analytics] (diagnosis)
+{Motor de diagnóstico educativo inclusivo};
+
+\node[block, below left=of diagnosis] (barriers)
+{Identificación de barreras\\
+para el aprendizaje};
+
+\node[block, below right=of diagnosis] (strengths)
+{Identificación de fortalezas\\
+y apoyos educativos};
+
+\node[center, below=of diagnosis] (recommend)
+{Generación de recomendaciones pedagógicas\\
+alineadas con \DUA};
+
+\node[block, below=of recommend] (decisions)
+{Apoyo a la toma de decisiones docentes};
+
+\draw[arrow] (students) -- (instruments);
+\draw[arrow] (instruments) -- (analytics);
+\draw[arrow] (analytics) -- (diagnosis);
+\draw[arrow] (diagnosis) -- (barriers);
+\draw[arrow] (diagnosis) -- (strengths);
+\draw[arrow] (diagnosis) -- (recommend);
+\draw[arrow] (recommend) -- (decisions);
+
+\end{tikzpicture}
+}
+\caption{Modelo de diagnóstico educativo inclusivo basado en datos propuesto en la investigación.}
+\label{fig:modelo-diagnostico}
+\end{figure}
+
+Como se observa en la Figura \ref{fig:modelo-diagnostico}, el modelo integra diversas fuentes de información educativa y las procesa mediante analítica del aprendizaje con el fin de generar diagnósticos orientados a la inclusión educativa. Este enfoque permite superar perspectivas diagnósticas centradas exclusivamente en déficits y promueve una comprensión más amplia de características, potencialidades y apoyos requeridos. Asimismo, el modelo adopta una perspectiva formativa: el objetivo del proceso diagnóstico no es clasificar o etiquetar a los estudiantes, sino generar información útil para orientar prácticas pedagógicas inclusivas y contextualizadas.
+
+En coherencia con el enfoque de Investigación Basada en el Diseño (\DBR) adoptado en el Capítulo III, el modelo se asume como susceptible de iteración y mejora progresiva: los resultados del diagnóstico y la retroalimentación de los actores educativos permiten refinar instrumentos, indicadores y recomendaciones.
+
+\section{Variables del diagnóstico educativo inclusivo}
+
+El diagnóstico educativo inclusivo requiere considerar múltiples dimensiones del aprendizaje, evitando enfoques reduccionistas que se limiten al rendimiento académico. La evidencia en educación inclusiva señala que el aprendizaje se encuentra influido por una combinación de factores pedagógicos, cognitivos, contextuales y socioemocionales. En consecuencia, el modelo propuesto integra variables que permiten describir el fenómeno educativo de manera comprehensiva y contextualizada.
+
+En esta investigación se propone un modelo analítico con cuatro grandes dimensiones:
+
+\begin{itemize}
+\item variables pedagógicas;
+\item variables cognitivas;
+\item variables contextuales;
+\item variables socioeducativas.
+\end{itemize}
+
+La Tabla \ref{tab:matriz-variables-diagnostico} sintetiza una matriz de variables e indicadores, incluyendo ejemplos de fuentes e instrumentos, y el tipo de dato esperado.
+
+% --- Tabla multipágina con encabezado repetido y ancho completo ---
+\begin{APAlongtable}
+{@{}p{2.9cm}p{3.2cm}Y p{2.4cm}p{2.2cm}@{}}
+{Matriz de variables del modelo de diagnóstico educativo inclusivo basado en datos.}
+{tab:matriz-variables-diagnostico}
+
+\textbf{Dimensión} &
+\textbf{Variable (ejemplos)} &
+\textbf{Indicadores observables (ejemplos)} &
+\textbf{Instrumento / Fuente} &
+\textbf{Tipo de dato} \\
+\midrule
+\endfirsthead
+
+\toprule
+\textbf{Dimensión} &
+\textbf{Variable (ejemplos)} &
+\textbf{Indicadores observables (ejemplos)} &
+\textbf{Instrumento / Fuente} &
+\textbf{Tipo de dato} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{5}{r}{\APAtablecontinued}\\
+\endfoot
+
+\endlastfoot
+
+\textbf{Pedagógica} &
+Estrategias didácticas &
+Variedad de estrategias usadas; adaptación de actividades; diversidad de recursos; nivel de diferenciación pedagógica &
+Observación guiada; rúbrica docente; planificación de clase &
+Cualitativo / Mixto \\
+
+\textbf{Pedagógica} &
+Participación en actividades &
+Frecuencia de participación; completitud de tareas; interacción en actividades; persistencia ante tareas &
+Registros del sistema; listas de cotejo; analítica de interacción &
+Cuantitativo \\
+
+\textbf{Pedagógica} &
+Ajustes razonables / apoyos &
+Presencia de apoyos; adecuaciones implementadas; seguimiento de apoyos; respuesta del estudiante al apoyo &
+Reportes docentes; historial de apoyos; registros del sistema &
+Mixto \\
+
+\midrule
+
+\textbf{Cognitiva} &
+Ritmo de aprendizaje &
+Tiempo promedio por actividad; progresión temporal; necesidad de repeticiones; tasa de finalización &
+Registros del sistema; analítica del aprendizaje &
+Cuantitativo \\
+
+\textbf{Cognitiva} &
+Preferencias y estilos (orientativo) &
+Preferencias de representación (visual/verbal); modalidad de respuesta; patrones de interacción con recursos &
+Cuestionarios; trazas digitales; autoinforme &
+Mixto \\
+
+\textbf{Cognitiva} &
+Estrategias cognitivas &
+Uso de planificación; autorregulación; monitoreo de comprensión; búsqueda de ayuda &
+Cuestionarios; entrevistas; rúbrica de autorregulación &
+Cualitativo / Mixto \\
+
+\midrule
+
+\textbf{Contextual} &
+Recursos disponibles &
+Acceso a tecnología; conectividad; disponibilidad de materiales; apoyos institucionales &
+Encuesta contextual; ficha institucional; entrevista &
+Mixto \\
+
+\textbf{Contextual} &
+Condiciones del entorno educativo &
+Tamaño de grupo; clima de aula; barreras físicas o tecnológicas; accesibilidad de recursos &
+Observación; checklist de accesibilidad; reporte institucional &
+Cualitativo / Mixto \\
+
+\textbf{Contextual} &
+Variables institucionales &
+Políticas inclusivas; rutas de atención; soporte profesional; prácticas de seguimiento &
+Análisis documental; entrevista a directivos &
+Cualitativo \\
+
+\midrule
+
+\textbf{Socioeducativa} &
+Motivación y compromiso &
+Interés sostenido; autoeficacia percibida; disposición a participar; persistencia &
+Cuestionario; entrevistas; analítica de participación &
+Mixto \\
+
+\textbf{Socioeducativa} &
+Factores socioemocionales &
+Regulación emocional; ansiedad académica (no clínica); relación con pares; percepción de apoyo &
+Cuestionarios; entrevistas; observación estructurada &
+Cualitativo / Mixto \\
+
+\textbf{Socioeducativa} &
+Interacciones sociales &
+Colaboración; participación en grupo; comunicación con docentes; redes de apoyo &
+Observación; registros de interacción; entrevistas &
+Mixto \\
+
+\end{APAlongtable}
+
+La Figura \ref{fig:variables-diagnostico} presenta el mapa de variables considerado en el modelo, evidenciando la convergencia de dimensiones que alimentan el motor de diagnóstico y sus resultados.
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  font=\footnotesize,
+  node distance=14mm,
+  block/.style={draw, rounded corners=2mm, align=center, inner sep=8pt, text width=4cm},
+  center/.style={draw, rounded corners=2mm, align=center, inner sep=10pt, text width=6cm},
+  arrow/.style={-{Stealth[length=2.6mm]}, thick}
+]
+
+\node[center] (diagnosis)
+{\textbf{Motor de diagnóstico educativo inclusivo}\\
+Integración de datos educativos};
+
+\node[block, above left=of diagnosis] (ped)
+{\textbf{Variables pedagógicas}\\
+Estrategias didácticas\\
+Participación en actividades};
+
+\node[block, above right=of diagnosis] (cog)
+{\textbf{Variables cognitivas}\\
+Estilos de aprendizaje\\
+Ritmos de aprendizaje};
+
+\node[block, below left=of diagnosis] (context)
+{\textbf{Variables contextuales}\\
+Entorno educativo\\
+Recursos disponibles};
+
+\node[block, below right=of diagnosis] (social)
+{\textbf{Variables socioeducativas}\\
+Motivación\\
+Factores socioemocionales};
+
+\node[center, below=25mm of diagnosis] (results)
+{\textbf{Resultados del diagnóstico}\\
+Barreras de aprendizaje\\
+Fortalezas educativas\\
+Recomendaciones pedagógicas};
+
+\draw[arrow] (ped) -- (diagnosis);
+\draw[arrow] (cog) -- (diagnosis);
+\draw[arrow] (context) -- (diagnosis);
+\draw[arrow] (social) -- (diagnosis);
+\draw[arrow] (diagnosis) -- (results);
+
+\end{tikzpicture}
+}
+\caption{Mapa de variables del modelo de diagnóstico educativo inclusivo basado en datos.}
+\label{fig:variables-diagnostico}
+\end{figure}
+
+Como se observa en la Figura \ref{fig:variables-diagnostico}, el modelo integra diversas dimensiones del aprendizaje. Las variables pedagógicas permiten analizar estrategias didácticas, actividades y niveles de participación. Las variables cognitivas aportan información relacionada con ritmos y estrategias de procesamiento. Las variables contextuales consideran condiciones institucionales, entorno y disponibilidad de recursos. Por su parte, las variables socioeducativas permiten comprender motivación, aspectos socioemocionales e interacciones sociales. La integración de estas dimensiones contribuye a diagnósticos más completos y contextualizados, alineados con los principios de la educación inclusiva y con la lógica del \DUA.
+
+\section{Funcionamiento del modelo}
+
+El funcionamiento del modelo de diagnóstico educativo inclusivo basado en datos se desarrolla a través de etapas interrelacionadas que transforman evidencia educativa en conocimiento pedagógico útil:
+
+\begin{enumerate}
+\item \textbf{Recolección de datos educativos:} recopilación mediante instrumentos diagnósticos, cuestionarios, registros de interacción con el sistema y datos contextuales.
+\item \textbf{Procesamiento y preparación de datos:} limpieza, normalización, integración y control de calidad de los datos para garantizar consistencia y trazabilidad.
+\item \textbf{Análisis mediante analítica del aprendizaje:} construcción de indicadores, detección de patrones y elaboración de perfiles educativos interpretables.
+\item \textbf{Generación de diagnósticos educativos:} identificación de barreras para el aprendizaje y la participación, así como fortalezas y potencialidades educativas.
+\item \textbf{Generación de recomendaciones pedagógicas:} producción de recomendaciones alineadas con el \DUA, orientadas a personalizar estrategias didácticas y apoyos diferenciados.
+\end{enumerate}
+
+Este proceso permite apoyar la toma de decisiones docentes y promover prácticas educativas más inclusivas, al convertir información dispersa en evidencia organizada, interpretable y accionable.
+
+\section{Integración del modelo con el sistema tecnológico}
+
+El modelo de diagnóstico educativo inclusivo propuesto se implementa mediante el sistema tecnológico desarrollado en el marco de la investigación. Este sistema actúa como plataforma para operacionalizar el modelo conceptual a través de herramientas digitales de captura, análisis y visualización de datos educativos.
+
+En particular, el sistema permite:
+
+\begin{itemize}
+\item recopilar información educativa de manera sistemática mediante instrumentos digitales;
+\item almacenar y gestionar evidencia educativa en una base de datos estructurada;
+\item analizar datos mediante herramientas de analítica del aprendizaje;
+\item generar diagnósticos educativos inclusivos basados en evidencia;
+\item proporcionar recomendaciones pedagógicas interpretables para docentes.
+\end{itemize}
+
+De este modo, el sistema tecnológico media entre datos educativos y decisiones pedagógicas, facilitando la aplicación práctica del modelo. Adicionalmente, la implementación tecnológica mejora la trazabilidad del proceso diagnóstico, fortalece la consistencia en la interpretación de la evidencia y promueve una cultura institucional de toma de decisiones basada en datos. Esta integración prepara el terreno para el Capítulo VI, donde se presentan criterios de validación y estrategia de evaluación del sistema.
+
+\section{Aporte conceptual del modelo}
+
+El modelo de diagnóstico educativo inclusivo basado en datos constituye un aporte al campo de la tecnología educativa aplicada al conocimiento, al integrar de manera sistemática tres enfoques que con frecuencia se abordan por separado: educación inclusiva, \DUA\ y analítica de datos educativos. Esta integración permite un enfoque diagnóstico que no se limita a identificar dificultades, sino que busca comprender la diversidad de los procesos educativos y generar información útil para orientar prácticas pedagógicas inclusivas.
+
+En síntesis, el modelo propuesto configura un marco conceptual y metodológico adaptable a distintos contextos educativos, y orienta el desarrollo de sistemas tecnológicos destinados a mejorar la equidad y la calidad educativa.
+
+\printbibliography[heading=subbibliography,title={Referencias (Capítulo V)}]
+\end{refsection}

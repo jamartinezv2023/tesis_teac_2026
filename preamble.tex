@@ -1,0 +1,138 @@
+% preamble.tex
+
+% =========================
+% Idioma y codificación
+% =========================
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% =========================
+% Fuente (equivalente Times New Roman)
+% =========================
+\usepackage{newtxtext,newtxmath}
+
+% =========================
+% Márgenes APA (2.54 cm)
+% =========================
+\usepackage{geometry}
+\geometry{left=2.54cm,right=2.54cm,top=2.54cm,bottom=2.54cm}
+
+% =========================
+% Interlineado doble (APA)
+% =========================
+\usepackage{setspace}
+\doublespacing
+
+% =========================
+% Sangría APA (1.27 cm), sin espacio extra entre párrafos
+% =========================
+\setlength{\parindent}{1.27cm}
+\setlength{\parskip}{0pt}
+
+% =========================
+% Mejoras tipográficas (recomendado en tesis)
+% =========================
+\usepackage{microtype}
+
+% =========================
+% Figuras y tablas (general)
+% =========================
+\usepackage{graphicx}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf}
+
+% =========================
+% Tablas APA: multipágina + ancho completo
+% =========================
+\usepackage{booktabs}      % reglas elegantes
+\usepackage{array}         % nuevos tipos de columna
+\usepackage{tabularx}      % columnas elásticas al ancho
+\usepackage{longtable}     % tablas multipágina
+\usepackage{ltablex}       % longtable + tabularx (recomendado)
+\keepXColumns              % estabilidad en columnas X/Y
+
+% (Opcional) notas bajo longtable (si las necesitas)
+\usepackage{threeparttablex}
+
+% Columna elástica alineada a la izquierda (mejor para texto largo)
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% Estilo uniforme para tablas (APA-friendly)
+\newcommand{\APAtablesetup}{%
+  \small
+  \setlength{\tabcolsep}{4pt}%
+  \renewcommand{\arraystretch}{1.25}%
+}
+
+% Texto automático para tablas largas
+\newcommand{\APAtablecontinued}{\footnotesize\textit{Continúa en la siguiente página.}}
+
+% =========================
+% Entorno reusable: longtable estilo APA
+% Uso:
+% \begin{APAlongtable}{<cols>}{<caption>}{<label>}
+%   Encabezado... \\ \midrule
+%   \endfirsthead ... \endhead ... \endfoot ... \endlastfoot
+%   Filas...
+% \end{APAlongtable}
+% =========================
+\newenvironment{APAlongtable}[3]{%
+  \APAtablesetup
+  \begin{center}
+  \begin{longtable}{#1}
+  \caption{#2}\label{#3}\\
+  \toprule
+}{%
+  \bottomrule
+  \end{longtable}
+  \end{center}
+}
+
+% =========================
+% Enlaces (en negro; hyperref antes de cleveref)
+% =========================
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=black
+}
+
+% Referencias inteligentes: Figura X, Tabla Y, etc. (después de hyperref)
+\usepackage[nameinlink,noabbrev]{cleveref}
+\crefname{figure}{Figura}{Figuras}
+\crefname{table}{Tabla}{Tablas}
+
+% =========================
+% Bibliografía APA 7 (biblatex-apa + biber)
+% =========================
+\usepackage{csquotes}
+\usepackage[
+  backend=biber,
+  style=apa,
+  citestyle=apa,
+  sorting=nyt,
+  maxcitenames=2,
+  maxbibnames=99,
+  uniquelist=false
+]{biblatex}
+
+\DeclareLanguageMapping{spanish}{spanish-apa}
+
+% Recurso global (opcional). Útil para fuentes transversales.
+\addbibresource{references/global.bib}
+
+% =========================
+% TikZ para diagramas
+% =========================
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,shapes.geometric,calc,fit}
+
+% =========================
+% Comandos consistentes (coherencia terminológica)
+% =========================
+\newcommand{\DUA}{Diseño Universal para el Aprendizaje (DUA)}
+\newcommand{\DBR}{Design-Based Research (DBR)}
+\newcommand{\IA}{Inteligencia Artificial (IA)}

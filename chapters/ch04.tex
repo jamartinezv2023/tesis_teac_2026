@@ -1,0 +1,447 @@
+\chapter{Diseño, arquitectura y evaluación del sistema tecnológico}
+
+\begin{refsection}
+\addbibresource{references/global.bib}
+\addbibresource{references/ch04.bib}
+
+\section{Modelo conceptual del diagnóstico educativo inclusivo basado en datos}
+
+El sistema tecnológico propuesto en esta investigación se fundamenta en un modelo conceptual de diagnóstico educativo inclusivo basado en datos, cuyo propósito es integrar múltiples dimensiones del proceso educativo con el fin de generar diagnósticos interpretables y pedagógicamente útiles.
+
+Este modelo parte del supuesto de que el aprendizaje no puede comprenderse adecuadamente a partir de una única fuente de información ni mediante indicadores exclusivamente centrados en el rendimiento académico. Por el contrario, requiere considerar de manera articulada variables pedagógicas, cognitivas, contextuales y socioeducativas que permitan comprender tanto las barreras para el aprendizaje como las fortalezas y necesidades de apoyo de los estudiantes.
+
+Desde esta perspectiva, el diagnóstico educativo inclusivo se concibe como un proceso dinámico orientado no a clasificar o etiquetar a los estudiantes, sino a producir información relevante para apoyar la toma de decisiones pedagógicas basadas en evidencia. En consecuencia, el modelo propuesto se articula con los principios de inclusión educativa, el Diseño Universal para el Aprendizaje (\DUA) y la educación basada en datos desarrollados en el marco teórico.
+
+\section{Mapa de variables del diagnóstico educativo inclusivo}
+
+Con el propósito de representar las dimensiones educativas consideradas en el sistema de diagnóstico inclusivo, se presenta un mapa conceptual de variables que integra los principales factores pedagógicos, cognitivos, contextuales y socioeducativos que influyen en los procesos de aprendizaje.
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[
+font=\footnotesize,
+node distance=14mm,
+box/.style={draw, rounded corners=2mm, align=center, inner sep=8pt, text width=4cm},
+bigbox/.style={draw, rounded corners=2mm, align=center, inner sep=10pt, text width=5.5cm},
+arrow/.style={-{Stealth[length=2.6mm]}, thick}
+]
+
+\node[bigbox] (diagnosis)
+{\textbf{Diagnóstico educativo inclusivo}};
+
+\node[box, above left=of diagnosis] (pedagogical)
+{Variables pedagógicas\\
+estrategias docentes\\
+participación\\
+evaluación};
+
+\node[box, above right=of diagnosis] (cognitive)
+{Variables cognitivas\\
+ritmo de aprendizaje\\
+estrategias de estudio\\
+persistencia};
+
+\node[box, below left=of diagnosis] (contextual)
+{Variables contextuales\\
+recursos educativos\\
+entorno institucional};
+
+\node[box, below right=of diagnosis] (socio)
+{Variables socioeducativas\\
+motivación\\
+interacción social};
+
+\draw[arrow] (pedagogical) -- (diagnosis);
+\draw[arrow] (cognitive) -- (diagnosis);
+\draw[arrow] (contextual) -- (diagnosis);
+\draw[arrow] (socio) -- (diagnosis);
+
+\end{tikzpicture}
+}
+
+\caption{Mapa conceptual de variables del diagnóstico educativo inclusivo.}
+\label{fig:variables-diagnostico}
+\end{figure}
+
+La Figura \ref{fig:variables-diagnostico} muestra cómo el diagnóstico educativo inclusivo integra múltiples dimensiones del proceso educativo. Las variables pedagógicas permiten analizar las condiciones didácticas en las cuales se desarrolla el aprendizaje; las variables cognitivas aportan información sobre ritmos, persistencia y estrategias de estudio; las variables contextuales incorporan factores del entorno y disponibilidad de recursos; y las variables socioeducativas permiten comprender elementos vinculados con la motivación y la interacción social.
+
+\section{Arquitectura funcional del sistema tecnológico}
+
+El sistema tecnológico desarrollado en esta investigación se concibe como una plataforma digital orientada al diagnóstico educativo inclusivo basado en datos.
+
+Su arquitectura funcional se estructura en diferentes capas que articulan interacción de usuarios, procesamiento de información, analítica del aprendizaje y generación de diagnósticos pedagógicos.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+node distance=10mm,
+layer/.style={draw, rounded corners, align=center, inner sep=8pt, text width=10cm},
+arrow/.style={->, thick}
+]
+
+\node[layer] (users)
+{Actores educativos\\Docentes — Estudiantes — Instituciones};
+
+\node[layer, below=of users] (ui)
+{Capa de interacción\\Plataforma digital};
+
+\node[layer, below=of ui] (ped)
+{Capa pedagógica\\Recomendaciones basadas en DUA};
+
+\node[layer, below=of ped] (diagnosis)
+{Motor de diagnóstico educativo};
+
+\node[layer, below=of diagnosis] (analytics)
+{Analítica del aprendizaje};
+
+\node[layer, below=of analytics] (data)
+{Base de datos educativa};
+
+\draw[arrow] (users) -- (ui);
+\draw[arrow] (ui) -- (ped);
+\draw[arrow] (ped) -- (diagnosis);
+\draw[arrow] (diagnosis) -- (analytics);
+\draw[arrow] (analytics) -- (data);
+
+\end{tikzpicture}
+
+\caption{Arquitectura funcional del sistema tecnológico.}
+\end{figure}
+
+\section{Arquitectura de flujo de datos del diagnóstico educativo}
+
+La arquitectura de flujo de datos describe el procesamiento de la información educativa dentro del sistema tecnológico propuesto.
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[
+font=\footnotesize,
+node distance=14mm,
+box/.style={draw, rounded corners=2mm, align=center, inner sep=8pt, text width=4cm},
+bigbox/.style={draw, rounded corners=2mm, align=center, inner sep=10pt, text width=5.5cm},
+arrow/.style={-{Stealth[length=2.6mm]}, thick}
+]
+
+\node[box] (activities)
+{Actividades educativas};
+
+\node[box, right=of activities] (questionnaires)
+{Cuestionarios diagnósticos};
+
+\node[box, right=of questionnaires] (logs)
+{Registros de interacción};
+
+\node[box, right=of logs] (context)
+{Datos contextuales};
+
+\node[bigbox, below=of questionnaires] (preprocess)
+{Preprocesamiento de datos};
+
+\node[bigbox, below=of preprocess] (analytics)
+{Analítica del aprendizaje};
+
+\node[bigbox, below=of analytics] (diagnosis)
+{Modelo de diagnóstico educativo};
+
+\node[box, below left=of diagnosis] (dashboard)
+{Panel docente};
+
+\node[box, below right=of diagnosis] (recommend)
+{Recomendaciones pedagógicas};
+
+\node[bigbox, below=20mm of diagnosis] (decisions)
+{Toma de decisiones pedagógicas};
+
+\draw[arrow] (activities) -- (preprocess);
+\draw[arrow] (questionnaires) -- (preprocess);
+\draw[arrow] (logs) -- (preprocess);
+\draw[arrow] (context) -- (preprocess);
+
+\draw[arrow] (preprocess) -- (analytics);
+\draw[arrow] (analytics) -- (diagnosis);
+
+\draw[arrow] (diagnosis) -- (dashboard);
+\draw[arrow] (diagnosis) -- (recommend);
+
+\draw[arrow] (dashboard) -- (decisions);
+\draw[arrow] (recommend) -- (decisions);
+
+\end{tikzpicture}
+}
+
+\caption{Arquitectura de flujo de datos del diagnóstico educativo inclusivo.}
+\label{fig:flujo-datos}
+\end{figure}
+\section{Motor de inteligencia analítica del sistema}
+
+El núcleo funcional del sistema tecnológico desarrollado corresponde a un motor de inteligencia analítica encargado de transformar datos educativos en diagnósticos pedagógicos interpretables. Este motor integra procesos de preprocesamiento de datos, analítica del aprendizaje y generación de inferencias diagnósticas orientadas a apoyar la toma de decisiones pedagógicas.
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[
+font=\footnotesize,
+node distance=14mm,
+box/.style={draw, rounded corners=2mm, align=center, inner sep=8pt, text width=4.5cm},
+bigbox/.style={draw, rounded corners=2mm, align=center, inner sep=10pt, text width=6cm},
+arrow/.style={-{Stealth[length=2.6mm]}, thick}
+]
+
+\node[box] (data)
+{Datos educativos\\
+actividades\\
+evaluaciones\\
+registros de interacción};
+
+\node[box, right=of data] (preprocess)
+{Preprocesamiento de datos\\
+limpieza\\
+normalización\\
+estructuración};
+
+\node[bigbox, right=of preprocess] (analytics)
+{\textbf{Motor de analítica del aprendizaje}\\
+identificación de patrones\\
+construcción de indicadores};
+
+\node[box, right=of analytics] (model)
+{Modelo de diagnóstico educativo\\
+identificación de barreras\\
+y fortalezas};
+
+\node[box, right=of model] (recommend)
+{Recomendaciones pedagógicas\\
+alineadas con \DUA};
+
+\draw[arrow] (data) -- (preprocess);
+\draw[arrow] (preprocess) -- (analytics);
+\draw[arrow] (analytics) -- (model);
+\draw[arrow] (model) -- (recommend);
+
+\end{tikzpicture}
+}
+
+\caption{Motor de inteligencia analítica del sistema de diagnóstico educativo inclusivo.}
+\label{fig:analytics-engine}
+\end{figure}
+
+La Figura \ref{fig:analytics-engine} ilustra el funcionamiento del motor analítico del sistema, el cual transforma datos educativos en información pedagógicamente relevante mediante procesos de analítica del aprendizaje. Este enfoque permite generar diagnósticos interpretables que apoyan la toma de decisiones pedagógicas orientadas a mejorar los procesos de aprendizaje.
+\section{Arquitectura completa del sistema}
+
+La arquitectura completa del sistema integra frontend, backend, módulos analíticos, almacenamiento de datos y generación de recomendaciones pedagógicas.
+
+El sistema incorpora principios de accesibilidad digital, usabilidad, protección de datos y transparencia en el procesamiento de información.
+
+\section{Trazabilidad funcional del sistema}
+
+\begin{APAlongtable}
+{@{}p{3cm}p{3cm}p{3cm}p{3cm}@{}}
+{Trazabilidad funcional del sistema tecnológico.}
+{tab:trazabilidad}
+
+\textbf{Módulo} &
+\textbf{Función} &
+\textbf{Entradas} &
+\textbf{Salidas} \\
+\midrule
+Captura de datos &
+Recopilar información educativa &
+Cuestionarios, registros &
+Base de datos educativa \\
+
+Analítica del aprendizaje &
+Procesar datos educativos &
+Datos estructurados &
+Indicadores de aprendizaje \\
+
+Diagnóstico inclusivo &
+Inferir perfiles educativos &
+Indicadores analíticos &
+Diagnóstico pedagógico \\
+
+Recomendaciones pedagógicas &
+Generar apoyos docentes &
+Diagnóstico educativo &
+Recomendaciones DUA \\
+
+\end{APAlongtable}
+\section{Ecosistema educativo inteligente}
+
+El sistema tecnológico propuesto se concibe como parte de un ecosistema educativo inteligente que integra actores educativos, plataformas tecnológicas, analítica del aprendizaje y procesos pedagógicos orientados a la mejora educativa.
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[
+font=\footnotesize,
+node distance=14mm,
+box/.style={draw, rounded corners=2mm, align=center, inner sep=8pt, text width=4cm},
+bigbox/.style={draw, rounded corners=2mm, align=center, inner sep=10pt, text width=6cm},
+arrow/.style={-{Stealth[length=2.6mm]}, thick}
+]
+
+\node[box] (students)
+{Estudiantes};
+
+\node[box, right=of students] (teachers)
+{Docentes};
+
+\node[box, right=of teachers] (institution)
+{Institución educativa};
+
+\node[bigbox, below=of teachers] (platform)
+{Plataforma tecnológica de diagnóstico educativo inclusivo};
+
+\node[box, below left=of platform] (analytics)
+{Analítica del aprendizaje};
+
+\node[box, below right=of platform] (recommend)
+{Recomendaciones pedagógicas};
+
+\node[bigbox, below=20mm of platform] (impact)
+{\textbf{Impacto educativo}\\
+mejora del aprendizaje\\
+educación inclusiva};
+
+\draw[arrow] (students) -- (platform);
+\draw[arrow] (teachers) -- (platform);
+\draw[arrow] (institution) -- (platform);
+
+\draw[arrow] (platform) -- (analytics);
+\draw[arrow] (platform) -- (recommend);
+
+\draw[arrow] (analytics) -- (impact);
+\draw[arrow] (recommend) -- (impact);
+
+\end{tikzpicture}
+}
+
+\caption{Ecosistema educativo inteligente basado en analítica del aprendizaje.}
+\label{fig:ecosistema}
+\end{figure}
+
+La Figura \ref{fig:ecosistema} muestra cómo el sistema tecnológico se integra dentro de un ecosistema educativo en el cual estudiantes, docentes e instituciones interactúan mediante una plataforma digital que utiliza analítica del aprendizaje para generar información pedagógica relevante. Este enfoque permite transformar datos educativos en conocimiento útil para mejorar los procesos de enseñanza y aprendizaje.
+\section{Modelo general del sistema de diagnóstico educativo inclusivo}
+
+Con el propósito de integrar los diferentes componentes conceptuales, metodológicos y tecnológicos desarrollados a lo largo de esta investigación, se presenta el modelo general del sistema de diagnóstico educativo inclusivo basado en analítica del aprendizaje e inteligencia artificial.
+
+Este modelo articula principios pedagógicos de inclusión educativa, fundamentos del Diseño Universal para el Aprendizaje, técnicas de analítica del aprendizaje y herramientas tecnológicas orientadas al procesamiento de datos educativos.
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[
+font=\footnotesize,
+node distance=14mm,
+box/.style={draw, rounded corners=2mm, align=center, inner sep=8pt, text width=4cm},
+bigbox/.style={draw, rounded corners=2mm, align=center, inner sep=10pt, text width=6cm},
+arrow/.style={-{Stealth[length=2.6mm]}, thick}
+]
+
+% Fundamentos teóricos
+\node[box] (inclusion)
+{Inclusión educativa};
+
+\node[box, right=of inclusion] (dua)
+{Diseño Universal\\ para el Aprendizaje};
+
+\node[box, right=of dua] (dataedu)
+{Educación basada\\ en datos};
+
+% Plataforma
+\node[bigbox, below=of dua] (system)
+{Sistema tecnológico de diagnóstico educativo inclusivo};
+
+% Analítica
+\node[box, below left=of system] (analytics)
+{Analítica del aprendizaje};
+
+\node[box, below=of system] (ai)
+{Inteligencia artificial\\ e inferencia};
+
+\node[box, below right=of system] (diagnosis)
+{Modelo de diagnóstico educativo};
+
+% Decisiones
+\node[bigbox, below=20mm of system] (decision)
+{Toma de decisiones pedagógicas};
+
+% Impacto
+\node[bigbox, below=of decision] (impact)
+{Mejora del aprendizaje\\
+educación inclusiva};
+
+% Flechas superiores
+\draw[arrow] (inclusion) -- (system);
+\draw[arrow] (dua) -- (system);
+\draw[arrow] (dataedu) -- (system);
+
+% Procesamiento
+\draw[arrow] (system) -- (analytics);
+\draw[arrow] (system) -- (ai);
+\draw[arrow] (system) -- (diagnosis);
+
+% Resultados
+\draw[arrow] (analytics) -- (decision);
+\draw[arrow] (ai) -- (decision);
+\draw[arrow] (diagnosis) -- (decision);
+
+% Impacto
+\draw[arrow] (decision) -- (impact);
+
+\end{tikzpicture}
+}
+
+\caption{Modelo general del sistema de diagnóstico educativo inclusivo basado en analítica del aprendizaje e inteligencia artificial.}
+\label{fig:modelo-general}
+\end{figure}
+
+La Figura \ref{fig:modelo-general} sintetiza la arquitectura conceptual del sistema desarrollado en esta investigación. El modelo integra fundamentos pedagógicos de inclusión educativa y Diseño Universal para el Aprendizaje con enfoques de educación basada en datos. A partir de estos principios, el sistema tecnológico utiliza analítica del aprendizaje e inteligencia artificial para procesar datos educativos y generar diagnósticos interpretables.
+
+Estos diagnósticos permiten apoyar la toma de decisiones pedagógicas orientadas a la identificación de barreras para el aprendizaje y al diseño de intervenciones educativas inclusivas. De esta manera, el sistema contribuye a mejorar la comprensión de los procesos de aprendizaje y a promover prácticas educativas más equitativas y fundamentadas en evidencia.
+\section{Fases de desarrollo del sistema bajo DBR}
+
+\begin{enumerate}
+\item análisis del problema educativo,
+\item diseño conceptual del modelo,
+\item diseño de arquitectura tecnológica,
+\item desarrollo del prototipo,
+\item implementación piloto,
+\item evaluación del sistema,
+\item refinamiento iterativo.
+\end{enumerate}
+
+\section{Criterios de evaluación del sistema}
+
+\begin{APAlongtable}
+{@{}p{3cm}p{3cm}p{4cm}@{}}
+{Criterios de evaluación del sistema tecnológico.}
+{tab:evaluacion}
+
+\textbf{Dimensión} &
+\textbf{Criterio} &
+\textbf{Indicadores} \\
+\midrule
+Pedagógica &
+Utilidad pedagógica &
+Uso de reportes y recomendaciones \\
+
+Tecnológica &
+Usabilidad &
+Facilidad de interacción \\
+
+Accesibilidad &
+Accesibilidad digital &
+Cumplimiento de criterios de accesibilidad \\
+
+Ética &
+Protección de datos &
+Anonimización y control de acceso \\
+
+\end{APAlongtable}
+
+\printbibliography[heading=subbibliography,title={Referencias (Capítulo IV)}]
+
+\end{refsection}
