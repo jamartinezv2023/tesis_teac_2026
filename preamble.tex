@@ -16,7 +16,12 @@
 % Márgenes APA (2.54 cm)
 % =========================
 \usepackage{geometry}
-\geometry{left=2.54cm,right=2.54cm,top=2.54cm,bottom=2.54cm}
+\geometry{
+  left=2.54cm,
+  right=2.54cm,
+  top=2.54cm,
+  bottom=2.54cm
+}
 
 % =========================
 % Interlineado doble (APA)
@@ -31,34 +36,35 @@
 \setlength{\parskip}{0pt}
 
 % =========================
-% Mejoras tipográficas (recomendado en tesis)
+% Mejoras tipográficas
 % =========================
 \usepackage{microtype}
 
 % =========================
-% Figuras y tablas (general)
+% Figuras y tablas
 % =========================
 \usepackage{graphicx}
 \usepackage{caption}
-\captionsetup{font=small,labelfont=bf}
+\captionsetup{
+  font=small,
+  labelfont=bf
+}
 
 % =========================
 % Tablas APA: multipágina + ancho completo
 % =========================
-\usepackage{booktabs}      % reglas elegantes
-\usepackage{array}         % nuevos tipos de columna
-\usepackage{tabularx}      % columnas elásticas al ancho
-\usepackage{longtable}     % tablas multipágina
-\usepackage{ltablex}       % longtable + tabularx (recomendado)
-\keepXColumns              % estabilidad en columnas X/Y
-
-% (Opcional) notas bajo longtable (si las necesitas)
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{ltablex}
+\keepXColumns
 \usepackage{threeparttablex}
 
-% Columna elástica alineada a la izquierda (mejor para texto largo)
+% Columna elástica alineada a la izquierda
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 
-% Estilo uniforme para tablas (APA-friendly)
+% Estilo uniforme para tablas
 \newcommand{\APAtablesetup}{%
   \small
   \setlength{\tabcolsep}{4pt}%
@@ -68,15 +74,7 @@
 % Texto automático para tablas largas
 \newcommand{\APAtablecontinued}{\footnotesize\textit{Continúa en la siguiente página.}}
 
-% =========================
 % Entorno reusable: longtable estilo APA
-% Uso:
-% \begin{APAlongtable}{<cols>}{<caption>}{<label>}
-%   Encabezado... \\ \midrule
-%   \endfirsthead ... \endhead ... \endfoot ... \endlastfoot
-%   Filas...
-% \end{APAlongtable}
-% =========================
 \newenvironment{APAlongtable}[3]{%
   \APAtablesetup
   \begin{center}
@@ -90,23 +88,48 @@
 }
 
 % =========================
-% Enlaces (en negro; hyperref antes de cleveref)
+% Utilidades generales
+% =========================
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+% =========================
+% Enlaces
 % =========================
 \usepackage{hyperref}
 \hypersetup{
   colorlinks=true,
   linkcolor=black,
   citecolor=black,
-  urlcolor=black
+  urlcolor=black,
+  pdfauthor={},
+  pdftitle={}
 }
 
-% Referencias inteligentes: Figura X, Tabla Y, etc. (después de hyperref)
+% =========================
+% Referencias inteligentes
+% =========================
 \usepackage[nameinlink,noabbrev]{cleveref}
-\crefname{figure}{Figura}{Figuras}
-\crefname{table}{Tabla}{Tablas}
+
+\crefname{chapter}{capítulo}{capítulos}
+\Crefname{chapter}{Capítulo}{Capítulos}
+
+\crefname{section}{sección}{secciones}
+\Crefname{section}{Sección}{Secciones}
+
+\crefname{subsection}{subsección}{subsecciones}
+\Crefname{subsection}{Subsección}{Subsecciones}
+
+\crefname{figure}{figura}{figuras}
+\Crefname{figure}{Figura}{Figuras}
+
+\crefname{table}{tabla}{tablas}
+\Crefname{table}{Tabla}{Tablas}
 
 % =========================
-% Bibliografía APA 7 (biblatex-apa + biber)
+% Bibliografía APA 7
 % =========================
 \usepackage{csquotes}
 \usepackage[
@@ -121,18 +144,43 @@
 
 \DeclareLanguageMapping{spanish}{spanish-apa}
 
-% Recurso global (opcional). Útil para fuentes transversales.
+% =========================
+% Base bibliográfica global y bases por capítulo
+% =========================
 \addbibresource{references/global.bib}
+\addbibresource{references/ch01.bib}
+\addbibresource{references/ch02.bib}
+\addbibresource{references/ch03.bib}
+\addbibresource{references/ch04.bib}
+\addbibresource{references/ch05.bib}
+\addbibresource{references/ch06.bib}
+\addbibresource{references/ch07.bib}
 
 % =========================
 % TikZ para diagramas
 % =========================
 \usepackage{tikz}
-\usetikzlibrary{positioning,arrows.meta,shapes.geometric,calc,fit}
+\usetikzlibrary{
+  positioning,
+  arrows.meta,
+  shapes.geometric,
+  calc,
+  fit
+}
 
 % =========================
-% Comandos consistentes (coherencia terminológica)
+% Comandos consistentes
 % =========================
 \newcommand{\DUA}{Diseño Universal para el Aprendizaje (DUA)}
 \newcommand{\DBR}{Design-Based Research (DBR)}
 \newcommand{\IA}{Inteligencia Artificial (IA)}
+
+% =========================
+% Ajustes útiles para tesis largas
+% =========================
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
