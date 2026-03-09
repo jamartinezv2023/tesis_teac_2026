@@ -1,3 +1,4 @@
+# .github/workflows/latex.yml
 name: Compilar tesis LaTeX
 
 on:
@@ -5,25 +6,59 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
-  build-latex:
+  build-main:
+    name: Compilar tesis completa
     runs-on: ubuntu-latest
 
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: Compilar tesis con latexmk + biber
+      - name: Compilar main.tex
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
           latexmk_use_xelatex: false
+          latexmk_shell_escape: false
           args: -pdf -interaction=nonstopmode -file-line-error
-          extra_system_packages: "biber"
+          extra_system_packages: |
+            biber
+            make
 
-      - name: Subir PDF como artefacto
+      - name: Subir PDF principal
         uses: actions/upload-artifact@v4
         with:
-          name: tesis-pdf
+          name: tesis-main-pdf
           path: main.pdf
+
+  build-chapters:
+    name: Compilar capítulos
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        chapter: [ch01, ch02, ch03, ch04, ch05, ch06, ch07]
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Compilar ${{ matrix.chapter }}
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          latexmk_use_xelatex: false
+          latexmk_shell_escape: false
+          args: -pdf -interaction=nonstopmode -file-line-error -jobname=${{ matrix.chapter }}
+          extra_system_packages: |
+            biber
+            make
+
+      - name: Subir PDF de ${{ matrix.chapter }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.chapter }}-pdf
+          path: ${{ matrix.chapter }}.pdf
