@@ -2,28 +2,29 @@
 
 \begin{refsection}
 
-
 \section{Introducción}
 
-Este capítulo presenta la discusión de los resultados obtenidos a lo largo del proceso investigativo, así como los principales aportes científicos derivados del desarrollo y evaluación del sistema tecnológico inteligente para el diagnóstico educativo inclusivo basado en datos.
+Este capítulo presenta la discusión de los resultados obtenidos a lo largo del proceso investigativo y expone los principales aportes científicos derivados del diseño, desarrollo y evaluación del sistema tecnológico inteligente para el diagnóstico educativo inclusivo basado en datos.
 
-La discusión se orienta a interpretar los resultados a la luz del marco teórico presentado en el Capítulo II, particularmente en relación con los enfoques de inclusión educativa, Diseño Universal para el Aprendizaje (DUA) y educación basada en datos. Asimismo, se analizan las implicaciones metodológicas del enfoque de Investigación Basada en el Diseño (Design-Based Research -- DBR) utilizado en el desarrollo del sistema.
+La discusión se orienta a interpretar los hallazgos a la luz del marco teórico desarrollado en el Capítulo II, particularmente en relación con los enfoques de inclusión educativa, Diseño Universal para el Aprendizaje (\DUA) y educación basada en datos. De igual manera, se analizan las implicaciones metodológicas del enfoque de Investigación Basada en el Diseño (\DBR) utilizado durante el proceso de construcción y validación del sistema.
 
-El capítulo concluye identificando los aportes científicos de la investigación, sus implicaciones para la práctica educativa y las posibles líneas futuras de investigación.
+Más allá de describir resultados, este capítulo busca situarlos en un plano interpretativo y crítico, identificando su alcance conceptual, metodológico, tecnológico y educativo. En consecuencia, la discusión permite comprender no solo qué se obtuvo, sino también qué significa lo obtenido en términos de avance científico y de contribución al campo del diagnóstico educativo inclusivo mediado por tecnología.
+
+Finalmente, el capítulo examina las implicaciones de la investigación para la práctica educativa, reconoce sus principales limitaciones y plantea líneas futuras de investigación orientadas a ampliar y profundizar el modelo propuesto.
 
 \section{Arquitectura científica de la investigación}
 
-Con el fin de sintetizar la estructura conceptual y metodológica del estudio, se presenta una arquitectura científica que integra los principales componentes de la investigación doctoral.
+Con el fin de sintetizar la estructura conceptual, metodológica y aplicada del estudio, se presenta una arquitectura científica que integra los principales componentes de la investigación doctoral.
 
 \begin{figure}[htbp]
 \centering
-\resizebox{\textwidth}{!}{
+\begin{adjustbox}{max totalsize={\textwidth}{0.82\textheight},center}
 \begin{tikzpicture}[
-font=\footnotesize,
-node distance=14mm,
-box/.style={draw, rounded corners=2mm, align=center, inner sep=8pt, text width=5cm},
-bigbox/.style={draw, rounded corners=2mm, align=center, inner sep=10pt, text width=7cm},
-arrow/.style={-{Stealth[length=2.6mm]}, thick}
+font=\small,
+node distance=11mm,
+box/.style={draw, rounded corners=2mm, align=center, inner sep=8pt, text width=5.2cm},
+bigbox/.style={draw, rounded corners=2mm, align=center, inner sep=10pt, text width=7.2cm},
+arrow/.style={-{Stealth[length=2.8mm]}, line width=0.9pt}
 ]
 
 \node[bigbox] (problem)
@@ -50,10 +51,10 @@ Design-Based Research};
 {\textbf{Sistema tecnológico inteligente}\\
 Diagnóstico educativo inclusivo basado en datos};
 
-\node[box, below left=of system] (implementation)
+\node[box, below left=12mm and 12mm of system] (implementation)
 {Implementación en contexto educativo real};
 
-\node[box, below right=of system] (analysis)
+\node[box, below right=12mm and 12mm of system] (analysis)
 {Análisis cuantitativo y cualitativo};
 
 \node[bigbox, below=20mm of system] (results)
@@ -71,96 +72,125 @@ Conocimiento transferible};
 \draw[arrow] (literature) -- (theory);
 \draw[arrow] (theory) -- (method);
 \draw[arrow] (method) -- (system);
-\draw[arrow] (system) -- (implementation);
-\draw[arrow] (system) -- (analysis);
-\draw[arrow] (implementation) -- (results);
-\draw[arrow] (analysis) -- (results);
+\draw[arrow] (system.south west) -- (implementation.north);
+\draw[arrow] (system.south east) -- (analysis.north);
+\draw[arrow] (implementation.south) |- (results.west);
+\draw[arrow] (analysis.south) |- (results.east);
 \draw[arrow] (results) -- (contribution);
 
 \end{tikzpicture}
-}
-
+\end{adjustbox}
 \caption{Arquitectura científica de la investigación doctoral.}
 \label{fig:arquitectura-cientifica}
 \end{figure}
 
-La Figura \ref{fig:arquitectura-cientifica} sintetiza la lógica general del estudio, mostrando cómo el problema educativo identificado conduce al desarrollo de un sistema tecnológico orientado a mejorar los procesos de diagnóstico educativo inclusivo.
+La Figura \ref{fig:arquitectura-cientifica} sintetiza la lógica general del estudio y muestra cómo el problema educativo identificado condujo, de manera articulada, a la construcción de un sistema tecnológico orientado a fortalecer los procesos de diagnóstico educativo inclusivo. Esta arquitectura evidencia que la investigación no se limitó al desarrollo de una herramienta informática, sino que integró revisión teórica, fundamentación metodológica, diseño tecnológico, implementación en contexto y producción de conocimiento científico transferible.
 
 \section{Interpretación de los resultados}
 
-Los resultados obtenidos evidencian que el sistema tecnológico desarrollado permite identificar patrones educativos relevantes que contribuyen a comprender la diversidad de procesos de aprendizaje presentes en contextos educativos reales.
+Los resultados obtenidos evidencian que el sistema tecnológico desarrollado permite identificar patrones educativos relevantes que contribuyen a comprender la diversidad de procesos de aprendizaje presentes en contextos educativos reales. Esta constatación adquiere especial significado si se considera que uno de los problemas centrales que dio origen a la investigación fue, precisamente, la insuficiencia de los diagnósticos tradicionales para captar la complejidad del aprendizaje más allá de indicadores convencionales de rendimiento.
 
-Desde una perspectiva pedagógica, el sistema facilita la identificación de barreras para el aprendizaje y la participación, lo cual se alinea con los principios del \DUA. En lugar de clasificar a los estudiantes mediante categorías rígidas, el sistema produce diagnósticos interpretables orientados a la identificación de apoyos pedagógicos.
+Desde una perspectiva pedagógica, los hallazgos muestran que el sistema facilita la identificación de barreras para el aprendizaje y la participación, lo cual se alinea con los principios del \DUA\ y con los enfoques contemporáneos de inclusión educativa. En lugar de reproducir clasificaciones rígidas del estudiantado, el sistema genera diagnósticos interpretables orientados a reconocer apoyos, necesidades y oportunidades de intervención. En este sentido, los resultados respaldan la idea de que la inclusión educativa exige herramientas capaces de producir información pedagógicamente significativa y no únicamente mediciones estandarizadas \parencite{unesco2021}.
 
-Desde una perspectiva tecnológica, la integración de analítica del aprendizaje permite procesar grandes volúmenes de datos educativos y generar indicadores que facilitan la toma de decisiones pedagógicas.
+Desde una perspectiva tecnológica, la integración de analítica del aprendizaje permitió procesar distintos tipos de datos educativos y transformarlos en indicadores útiles para la comprensión del aprendizaje. Este hallazgo es consistente con la literatura que sostiene que la educación basada en datos adquiere valor cuando la información recolectada puede traducirse en conocimiento accionable para docentes e instituciones. La investigación demuestra, por tanto, que la analítica del aprendizaje puede desempeñar un papel relevante en el diagnóstico educativo, siempre que se mantenga vinculada a finalidades pedagógicas claras.
+
+Desde una perspectiva metodológica, los resultados también sugieren que la lógica iterativa de la \DBR\ favoreció el refinamiento progresivo del sistema y fortaleció la relación entre teoría, diseño, implementación y evaluación. Esto permitió que la construcción tecnológica no se desarrollara de forma aislada, sino en interacción constante con las necesidades del contexto y con la interpretación de la evidencia empírica \parencite{wang2005}.
+
+En conjunto, la interpretación de los resultados permite sostener que el sistema tecnológico propuesto no solo es funcional desde el punto de vista técnico, sino también pertinente desde el punto de vista pedagógico y metodológico. Su relevancia reside en que ofrece una vía para articular inclusión, tecnología y evidencia educativa en una propuesta coherente y aplicable.
 
 \section{Evaluación del sistema tecnológico}
 
-La evaluación del sistema se realizó considerando múltiples dimensiones pedagógicas, tecnológicas y éticas.
+La evaluación del sistema se realizó considerando múltiples dimensiones pedagógicas, tecnológicas, éticas y de accesibilidad, con el propósito de valorar su funcionamiento de manera integral.
 
 \begin{table}[htbp]
 \centering
 \caption{Dimensiones de evaluación del sistema tecnológico}
-\begin{tabular}{p{4cm}p{9cm}}
+\begin{tabularx}{\textwidth}{@{}p{3.5cm}Y@{}}
 \toprule
-Dimensión & Descripción \\
+\textbf{Dimensión} & \textbf{Descripción} \\
 \midrule
-Pedagógica & Utilidad del sistema para apoyar decisiones docentes \\
-Tecnológica & Estabilidad, rendimiento y escalabilidad del sistema \\
-Accesibilidad & Facilidad de uso para diversos perfiles de usuarios \\
-Ética & Protección de datos y transparencia algorítmica \\
-Impacto educativo & Capacidad para mejorar el diagnóstico educativo \\
+Pedagógica & Utilidad del sistema para apoyar decisiones docentes, interpretar información educativa y orientar acciones pedagógicas inclusivas. \\
+Tecnológica & Estabilidad, rendimiento, consistencia funcional y posibilidades de escalabilidad del sistema. \\
+Accesibilidad & Facilidad de uso para distintos perfiles de usuarios y adecuación a criterios de interacción comprensible y usable. \\
+Ética & Protección de datos, transparencia en el tratamiento de la información y consideración de riesgos de sesgo o uso inadecuado. \\
+Impacto educativo & Capacidad del sistema para fortalecer procesos de diagnóstico educativo y aportar información útil para la mejora pedagógica. \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
+\label{tab:evaluacion-sistema-ch06}
 \end{table}
 
-Los resultados indican que el sistema presenta un alto potencial para apoyar procesos de diagnóstico educativo inclusivo en contextos educativos diversos.
+Los resultados de la evaluación indican que el sistema presenta un alto potencial para apoyar procesos de diagnóstico educativo inclusivo en contextos educativos diversos. En particular, se observó que la dimensión pedagógica constituye uno de sus principales puntos fuertes, dado que la información generada por la plataforma fue percibida como relevante para la comprensión de la diversidad del aprendizaje.
+
+En la dimensión tecnológica, el sistema mostró condiciones de funcionamiento adecuadas para su uso prototípico, aunque también reveló la necesidad de continuar fortaleciendo aspectos relacionados con escalabilidad, interoperabilidad y refinamiento de módulos analíticos. Esto es esperable en un desarrollo investigativo cuyo propósito no fue producir una solución comercial cerrada, sino un prototipo funcional con capacidad de validación académica.
+
+En relación con la accesibilidad y la ética, la evaluación permitió confirmar que estos componentes no deben entenderse como añadidos secundarios, sino como dimensiones constitutivas de cualquier sistema orientado al diagnóstico inclusivo. La investigación pone de manifiesto que la legitimidad de una solución basada en datos depende, en buena medida, de su capacidad para ser comprensible, usable, respetuosa de la diversidad y consistente con principios de responsabilidad.
 
 \section{Aportes científicos de la investigación}
 
-La investigación genera tres tipos principales de aportes científicos.
+La investigación genera aportes científicos de carácter conceptual, metodológico y tecnológico, los cuales se articulan entre sí y permiten reconocer el valor integral del estudio.
 
 \subsection{Aporte conceptual}
 
-El estudio propone un modelo conceptual de diagnóstico educativo inclusivo basado en datos que integra tres enfoques teóricos:
+El estudio propone un modelo conceptual de diagnóstico educativo inclusivo basado en datos que integra tres enfoques teóricos fundamentales:
 
 \begin{itemize}
-\item inclusión educativa,
-\item Diseño Universal para el Aprendizaje,
+\item inclusión educativa;
+\item Diseño Universal para el Aprendizaje;
 \item educación basada en datos.
 \end{itemize}
 
-Este modelo permite comprender el diagnóstico educativo como un proceso dinámico orientado a identificar barreras y oportunidades de aprendizaje.
+Este modelo amplía la comprensión del diagnóstico educativo al concebirlo como un proceso dinámico, contextualizado e interpretativo, orientado a identificar barreras, fortalezas y oportunidades de apoyo. Su principal aporte consiste en desplazar el énfasis desde la clasificación del estudiante hacia la comprensión integral de las condiciones que configuran el aprendizaje.
 
 \subsection{Aporte metodológico}
 
-Desde el punto de vista metodológico, la investigación demuestra la pertinencia del enfoque \DBR\ para el desarrollo de sistemas tecnológicos educativos complejos. Este enfoque permite integrar investigación teórica, desarrollo tecnológico y evaluación en contextos educativos reales.
+Desde el punto de vista metodológico, la investigación demuestra la pertinencia del enfoque \DBR\ para el desarrollo de sistemas tecnológicos educativos complejos. La adopción de esta metodología permitió integrar fundamentación teórica, diseño iterativo, implementación contextual y evaluación empírica en una misma estructura de trabajo.
+
+Este aporte resulta relevante porque muestra que la investigación en tecnología educativa puede producir conocimiento científico sin separar artificialmente el desarrollo de la herramienta del análisis de su sentido pedagógico. En este estudio, la metodología no fue simplemente un procedimiento instrumental, sino una estrategia epistemológica para construir conocimiento situado y transferible \parencite{creswell2018,wang2005}.
 
 \subsection{Aporte tecnológico}
 
 El principal aporte tecnológico consiste en el desarrollo de un sistema inteligente capaz de:
 
 \begin{itemize}
-\item recopilar datos educativos de forma sistemática,
-\item analizar patrones de aprendizaje,
-\item generar diagnósticos educativos interpretables,
+\item recopilar datos educativos de forma sistemática;
+\item analizar patrones de aprendizaje;
+\item generar diagnósticos educativos interpretables;
 \item apoyar la toma de decisiones pedagógicas.
 \end{itemize}
+
+Este aporte se concreta en una arquitectura modular que integra captura de datos, analítica del aprendizaje, motor de diagnóstico y generación de recomendaciones pedagógicas. Aunque el sistema tiene carácter prototípico, su diseño constituye una base tecnológica sólida para futuras extensiones, validaciones y adaptaciones.
+
 \subsection{Contribución científica de la investigación}
 
-Con el fin de sintetizar el aporte científico del estudio, se presenta una representación conceptual que ilustra la relación entre el estado del conocimiento previo, el vacío identificado en la literatura y la propuesta desarrollada en esta investigación.
+Con el fin de sintetizar el aporte científico del estudio, se presenta una representación conceptual que ilustra la relación entre el conocimiento previo, el vacío identificado en la literatura y la propuesta desarrollada en esta investigación.
 
 \begin{figure}[htbp]
 \centering
-\resizebox{\textwidth}{!}{
+\begin{adjustbox}{max totalsize={\textwidth}{0.78\textheight},center}
 \begin{tikzpicture}[
-font=\footnotesize,
-node distance=14mm,
-box/.style={draw, rounded corners=2mm, align=center, inner sep=8pt, text width=5cm},
-bigbox/.style={draw, rounded corners=2mm, align=center, inner sep=10pt, text width=7cm},
-arrow/.style={-{Stealth[length=2.6mm]}, thick}
+font=\small,
+node distance=11mm and 16mm,
+box/.style={
+  draw,
+  rounded corners=2mm,
+  align=center,
+  inner sep=8pt,
+  text width=5.0cm
+},
+bigbox/.style={
+  draw,
+  rounded corners=2mm,
+  align=center,
+  inner sep=10pt,
+  text width=7.2cm
+},
+arrow/.style={
+  -{Stealth[length=2.8mm]},
+  line width=0.9pt
+}
 ]
 
+% Bloque superior
 \node[bigbox] (knowledge)
 {\textbf{Conocimiento previo}\\
 Investigaciones sobre inclusión educativa, DUA y analítica del aprendizaje};
@@ -173,45 +203,49 @@ Escasa integración entre diagnóstico educativo inclusivo, analítica de datos 
 {\textbf{Propuesta de investigación}\\
 Sistema tecnológico inteligente para diagnóstico educativo inclusivo basado en datos};
 
-\node[box, below left=of proposal] (model)
-{Modelo conceptual de diagnóstico inclusivo};
+% Bloques intermedios
+\node[box, below left=14mm and 22mm of proposal] (model)
+{Modelo conceptual de\\ diagnóstico inclusivo};
 
-\node[box, below=of proposal] (system)
-{Sistema tecnológico basado en analítica del aprendizaje};
+\node[box, below=16mm of proposal] (system)
+{Sistema tecnológico basado\\ en analítica del aprendizaje};
 
-\node[box, below right=of proposal] (method)
-{Metodología DBR para desarrollo iterativo};
+\node[box, below right=14mm and 22mm of proposal] (method)
+{Metodología DBR para\\ desarrollo iterativo};
 
-\node[bigbox, below=20mm of proposal] (impact)
+% Bloque final
+\node[bigbox, below=18mm of system] (impact)
 {\textbf{Contribución científica}\\
 Integración entre pedagogía inclusiva, analítica del aprendizaje y tecnología educativa};
 
+% Flechas principales
 \draw[arrow] (knowledge) -- (gap);
 \draw[arrow] (gap) -- (proposal);
 
-\draw[arrow] (proposal) -- (model);
-\draw[arrow] (proposal) -- (system);
-\draw[arrow] (proposal) -- (method);
+% Salidas de la propuesta
+\draw[arrow] (proposal.south west) -- (model.north);
+\draw[arrow] (proposal.south) -- (system.north);
+\draw[arrow] (proposal.south east) -- (method.north);
 
-\draw[arrow] (model) -- (impact);
-\draw[arrow] (system) -- (impact);
-\draw[arrow] (method) -- (impact);
+% Convergencia hacia la contribución científica
+\draw[arrow] (model.south) |- (impact.west);
+\draw[arrow] (system.south) -- (impact.north);
+\draw[arrow] (method.south) |- (impact.east);
 
 \end{tikzpicture}
-}
-
+\end{adjustbox}
 \caption{Contribución científica de la investigación al campo del diagnóstico educativo inclusivo basado en datos.}
 \label{fig:contribucion-cientifica}
 \end{figure}
 
-Como se observa en la Figura \ref{fig:contribucion-cientifica}, la investigación contribuye a cerrar un vacío existente en la literatura mediante la integración de tres dimensiones fundamentales: pedagogía inclusiva, analítica del aprendizaje y tecnología educativa.
+Como se observa en la Figura \ref{fig:contribucion-cientifica}, la investigación contribuye a cerrar un vacío existente en la literatura mediante la integración de tres dimensiones fundamentales: pedagogía inclusiva, analítica del aprendizaje y tecnología educativa. Esta integración constituye, en sí misma, uno de los aportes más significativos del estudio, ya que permite pasar de marcos conceptuales fragmentados a una propuesta investigativa y tecnológica articulada.
 
 \section{Síntesis de los aportes científicos de la investigación}
 
-Con el fin de sintetizar las principales contribuciones generadas por esta investigación doctoral, se presenta una tabla que resume los distintos tipos de aportes realizados, su descripción y la evidencia correspondiente dentro de la estructura de la tesis.
+Con el fin de sistematizar las principales contribuciones generadas por esta investigación doctoral, se presenta una tabla de síntesis que resume los tipos de aportes, su descripción y su evidencia dentro de la estructura de la tesis.
 
 \begin{APAlongtable}
-{@{}p{3cm}p{6cm}p{3cm}p{3cm}@{}}
+{@{}p{2.6cm}p{5.5cm}p{2.6cm}p{3.8cm}@{}}
 {Síntesis de los aportes científicos de la investigación doctoral.}
 {tab:aportes-cientificos}
 
@@ -242,7 +276,7 @@ Capítulo II &
 Marco teórico y modelo conceptual del diagnóstico educativo inclusivo \\
 
 Metodológico &
-Aplicación del enfoque de Investigación Basada en el Diseño (DBR) combinado con métodos mixtos para el desarrollo y evaluación de sistemas tecnológicos educativos en contextos reales. &
+Aplicación del enfoque de Investigación Basada en el Diseño (DBR), articulado con métodos mixtos, para el desarrollo y evaluación de sistemas tecnológicos educativos en contextos reales. &
 Capítulo III &
 Marco metodológico y fases del proceso investigativo \\
 
@@ -273,35 +307,36 @@ Discusión de resultados y aportes científicos de la investigación \\
 
 \end{APAlongtable}
 
-La Tabla \ref{tab:aportes-cientificos} permite identificar los distintos niveles de contribución generados por esta investigación, los cuales abarcan dimensiones conceptuales, metodológicas, tecnológicas y pedagógicas. En conjunto, estos aportes contribuyen al desarrollo de herramientas y enfoques orientados a fortalecer los procesos de diagnóstico educativo inclusivo mediante el uso responsable de tecnologías basadas en datos.
+La Tabla \ref{tab:aportes-cientificos} permite reconocer que la investigación no se limita a un solo tipo de contribución. Por el contrario, sus aportes se distribuyen en varios niveles complementarios que, en conjunto, fortalecen el valor científico de la tesis y amplían su potencial de transferencia a otros contextos educativos y académicos.
+
 \section{Implicaciones educativas}
 
-Los resultados de la investigación tienen implicaciones relevantes para la práctica educativa.
+Los resultados de la investigación tienen implicaciones relevantes para la práctica educativa y para el diseño de políticas y estrategias institucionales orientadas a la inclusión.
 
-En primer lugar, el uso de sistemas basados en datos puede contribuir a mejorar la comprensión de la diversidad de procesos de aprendizaje presentes en las aulas.
+En primer lugar, el estudio sugiere que el uso de sistemas basados en datos puede contribuir a mejorar la comprensión de la diversidad de procesos de aprendizaje presentes en las aulas. Esto implica que el diagnóstico educativo puede evolucionar desde modelos centrados en la homogeneización hacia modelos más atentos a trayectorias, barreras y apoyos diferenciados.
 
-En segundo lugar, la integración de analítica del aprendizaje con principios pedagógicos inclusivos permite desarrollar herramientas que apoyan la toma de decisiones docentes de manera fundamentada.
+En segundo lugar, la integración de analítica del aprendizaje con principios pedagógicos inclusivos permite desarrollar herramientas que apoyan la toma de decisiones docentes de manera más fundamentada. Esta relación entre datos e interpretación pedagógica resulta especialmente importante en contextos donde la diversidad del estudiantado exige respuestas flexibles, contextualizadas y sostenidas en evidencia.
 
-Finalmente, el estudio muestra que las tecnologías educativas pueden desempeñar un papel importante en la promoción de sistemas educativos más equitativos e inclusivos.
+Finalmente, el estudio muestra que las tecnologías educativas pueden desempeñar un papel significativo en la promoción de sistemas educativos más equitativos, siempre que su diseño y uso se orienten por criterios de accesibilidad, ética y pertinencia pedagógica. En otras palabras, la innovación tecnológica en educación adquiere valor cuando contribuye a ampliar oportunidades de aprendizaje y no a reproducir desigualdades preexistentes.
 
 \section{Impacto educativo del sistema tecnológico}
 
-Para comprender el potencial impacto del sistema desarrollado, se presenta un modelo conceptual que describe cómo la analítica del aprendizaje puede contribuir a mejorar la toma de decisiones pedagógicas y favorecer procesos educativos inclusivos.
+Para comprender el potencial impacto del sistema desarrollado, se presenta un modelo conceptual que describe cómo la analítica del aprendizaje puede contribuir a fortalecer la toma de decisiones pedagógicas y favorecer procesos educativos inclusivos.
 
 \begin{figure}[htbp]
 \centering
-\resizebox{\textwidth}{!}{
+\begin{adjustbox}{max totalsize={\textwidth}{0.72\textheight},center}
 \begin{tikzpicture}[
-font=\footnotesize,
-node distance=14mm,
-box/.style={draw, rounded corners=2mm, align=center, inner sep=8pt, text width=4.5cm},
-bigbox/.style={draw, rounded corners=2mm, align=center, inner sep=10pt, text width=6.5cm},
-arrow/.style={-{Stealth[length=2.6mm]}, thick}
+font=\small,
+node distance=11mm and 12mm,
+box/.style={draw, rounded corners=2mm, align=center, inner sep=8pt, text width=4.4cm},
+bigbox/.style={draw, rounded corners=2mm, align=center, inner sep=10pt, text width=6.2cm},
+arrow/.style={-{Stealth[length=2.8mm]}, line width=0.9pt}
 ]
 
 \node[box] (data)
 {Datos educativos\\
-interacciones, evaluaciones, contexto};
+interacciones, evaluaciones y contexto};
 
 \node[box, right=of data] (analytics)
 {Analítica del aprendizaje\\
@@ -314,7 +349,7 @@ identificación de patrones};
 {Recomendaciones pedagógicas\\
 basadas en DUA};
 
-\node[bigbox, below=of analytics] (decision)
+\node[bigbox, below=16mm of analytics] (decision)
 {\textbf{Toma de decisiones pedagógicas}\\
 intervenciones educativas diferenciadas};
 
@@ -327,53 +362,56 @@ reducción de barreras educativas};
 \draw[arrow] (analytics) -- (diagnosis);
 \draw[arrow] (diagnosis) -- (recommend);
 
-\draw[arrow] (analytics) -- (decision);
-\draw[arrow] (diagnosis) -- (decision);
-\draw[arrow] (recommend) -- (decision);
+\draw[arrow] (analytics.south) -- (decision.north);
+\draw[arrow] (diagnosis.south) -- (decision.north);
+\draw[arrow] (recommend.south) -- (decision.north);
 
 \draw[arrow] (decision) -- (impact);
 
 \end{tikzpicture}
-}
-
+\end{adjustbox}
 \caption{Impacto educativo del sistema tecnológico basado en analítica del aprendizaje.}
 \label{fig:impacto-sistema}
 \end{figure}
 
-La Figura \ref{fig:impacto-sistema} muestra cómo el uso de datos educativos y técnicas de analítica del aprendizaje puede contribuir a generar diagnósticos educativos interpretables que apoyen la toma de decisiones pedagógicas orientadas a la inclusión educativa.
+La Figura \ref{fig:impacto-sistema} muestra cómo el uso de datos educativos y técnicas de analítica del aprendizaje puede contribuir a generar diagnósticos interpretables que apoyen la toma de decisiones pedagógicas orientadas a la inclusión educativa. Este impacto debe entenderse no como un efecto automático de la tecnología, sino como el resultado de una articulación entre información, interpretación y acción pedagógica.
 
 \section{Limitaciones de la investigación}
 
-Como toda investigación aplicada, el estudio presenta algunas limitaciones.
+Como toda investigación aplicada, el estudio presenta algunas limitaciones que deben ser consideradas al interpretar su alcance.
 
 Entre las principales limitaciones se encuentran:
 
 \begin{itemize}
 \item la implementación del sistema en un número limitado de contextos educativos;
-\item la dependencia de la calidad de los datos educativos disponibles;
-\item la necesidad de procesos continuos de mejora del sistema tecnológico.
+\item la dependencia de la calidad, disponibilidad y consistencia de los datos educativos;
+\item el carácter prototípico del sistema tecnológico desarrollado;
+\item la necesidad de procesos continuos de ajuste y mejora del modelo analítico y de la interfaz.
 \end{itemize}
 
-Estas limitaciones abren nuevas oportunidades para investigaciones futuras orientadas a ampliar el alcance del sistema.
+Estas limitaciones no invalidan los resultados obtenidos, pero sí delimitan su nivel de generalización. En particular, sugieren que el potencial del sistema debe seguir siendo evaluado en escenarios más amplios, diversos y longitudinales. Asimismo, evidencian que el desarrollo de tecnologías educativas basadas en datos es un proceso evolutivo que requiere validación permanente y refinamiento contextual.
 
 \section{Líneas futuras de investigación}
 
-A partir de los resultados obtenidos, se identifican diversas líneas futuras de investigación.
+A partir de los hallazgos obtenidos, se identifican varias líneas futuras de investigación que podrían profundizar el trabajo desarrollado.
 
 \begin{itemize}
-\item Integración de modelos avanzados de inteligencia artificial para mejorar los diagnósticos educativos.
-\item Expansión del sistema a diferentes niveles educativos.
-\item Evaluación longitudinal del impacto pedagógico del sistema.
-\item Desarrollo de modelos explicables de analítica educativa.
+\item integración de modelos avanzados de inteligencia artificial para enriquecer los diagnósticos educativos;
+\item expansión del sistema a diferentes niveles, modalidades y contextos educativos;
+\item evaluación longitudinal del impacto pedagógico del sistema;
+\item desarrollo de modelos explicables de analítica educativa;
+\item profundización en criterios éticos de gobernanza, transparencia y uso responsable de datos educativos.
 \end{itemize}
 
-Estas líneas de investigación permitirán profundizar en el potencial de las tecnologías basadas en datos para promover sistemas educativos inclusivos.
+Estas líneas de investigación permitirán ampliar el potencial del modelo propuesto y consolidar nuevas formas de articulación entre pedagogía, tecnología y evidencia educativa. En particular, abren la posibilidad de avanzar hacia sistemas cada vez más interpretables, accesibles y sensibles a la diversidad de condiciones de aprendizaje.
 
 \section{Síntesis final}
 
-En síntesis, la investigación demuestra que es posible desarrollar sistemas tecnológicos capaces de apoyar procesos de diagnóstico educativo inclusivo basados en datos.
+En síntesis, la investigación demuestra que es posible diseñar y desarrollar sistemas tecnológicos capaces de apoyar procesos de diagnóstico educativo inclusivo basados en datos, siempre que su construcción se fundamente en marcos pedagógicos sólidos, metodologías rigurosas y criterios éticos explícitos.
 
-El sistema propuesto constituye un paso hacia la integración efectiva entre pedagogía, analítica del aprendizaje y tecnología educativa, contribuyendo al desarrollo de herramientas que promuevan prácticas educativas más inclusivas y fundamentadas en evidencia.
+El sistema propuesto constituye un avance en la integración entre pedagogía, analítica del aprendizaje y tecnología educativa. Su principal valor no radica únicamente en la automatización del procesamiento de información, sino en su capacidad para generar diagnósticos interpretables, apoyar la toma de decisiones docentes y contribuir a una comprensión más amplia de la diversidad del aprendizaje.
+
+De esta manera, la tesis aporta evidencia de que la tecnología educativa, cuando se orienta por principios de inclusión y se articula con procesos de investigación aplicada, puede constituirse en una vía relevante para fortalecer prácticas pedagógicas más equitativas, reflexivas y fundamentadas en evidencia.
 
 \printbibliography[heading=subbibliography,title={Referencias (Capítulo VI)}]
 

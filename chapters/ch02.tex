@@ -97,177 +97,299 @@ La convergencia entre inclusión educativa, \DUA, accesibilidad digital y educac
 \item la educación basada en datos aporta el \textbf{cómo metodológico-tecnológico}: evidencia para comprender y mejorar.
 \end{itemize}
 
-Con el fin de sintetizar esta articulación, se presenta un modelo conceptual integrador que fundamenta el diseño del sistema tecnológico inteligente de diagnóstico educativo inclusivo propuesto en esta investigación. La Figura \ref{fig:articulacion-marco-teorico} representa la estructura conceptual del modelo.
+Con el fin de sintetizar esta articulación, se presenta en primer lugar una figura de \textbf{arquitectura conceptual}, orientada a mostrar los pilares teóricos que fundamentan la propuesta, y posteriormente una figura de \textbf{arquitectura funcional}, dirigida a explicar la lógica operativa del sistema tecnológico de diagnóstico educativo inclusivo. Esta división permite representar con mayor claridad tanto el sustento teórico del modelo como su traducción en componentes funcionales dentro del sistema.
 
-\begin{figure}[htbp]
+\begin{figure}[p]
 \centering
-\resizebox{\textwidth}{!}{%
+\begin{adjustbox}{max totalsize={\textwidth}{0.90\textheight},center}
 \begin{tikzpicture}[
-  font=\footnotesize,
-  node distance=10mm and 12mm,
-  box/.style={draw, rounded corners=2mm, align=center, inner sep=6pt, text width=4.3cm},
-  bigbox/.style={draw, rounded corners=2mm, align=center, inner sep=8pt, text width=8.3cm},
-  midbox/.style={draw, rounded corners=2mm, align=center, inner sep=6pt, text width=4.2cm},
-  arrow/.style={-{Stealth[length=2.6mm]}, line width=0.7pt, rounded corners=2pt},
-  frame/.style={draw, rounded corners=2mm, dashed, inner sep=8pt}
+  font=\small,
+  node distance=12mm and 10mm,
+  pillar/.style={
+    draw,
+    rounded corners=2mm,
+    align=center,
+    inner sep=7pt,
+    text width=3.7cm
+  },
+  core/.style={
+    draw,
+    rounded corners=2mm,
+    align=center,
+    inner sep=9pt,
+    text width=11.5cm
+  },
+  block/.style={
+    draw,
+    rounded corners=2mm,
+    align=center,
+    inner sep=8pt,
+    text width=5.0cm
+  },
+  wideblock/.style={
+    draw,
+    rounded corners=2mm,
+    align=center,
+    inner sep=8pt,
+    text width=11.0cm
+  },
+  arrow/.style={
+    -{Stealth[length=2.6mm]},
+    line width=0.85pt
+  }
 ]
 
-\node[box] (incl) {Inclusión educativa\\\textbf{(fin)}\\Equidad, participación\\y eliminación de barreras};
-\node[box, right=of incl] (dua) {\DUA\\\textbf{(cómo pedagógico)}\\Múltiples medios:\\compromiso, representación,\\acción/expresión};
-\node[box, right=of dua] (acc) {Accesibilidad digital\\\textbf{(condición)}\\WCAG y estándares\\de accesibilidad TIC};
-\node[box, right=of acc] (data) {Educación basada en datos\\\textbf{(cómo metodológico-tecnológico)}\\Analítica del aprendizaje\\y evidencia para la mejora};
+% ======================================================
+% PILARES TEÓRICOS
+% ======================================================
+\node[pillar] (incl) {\textbf{Inclusión educativa}\\
+Equidad\\
+Participación\\
+Eliminación de barreras};
 
-\node[bigbox, below=16mm of acc] (art) {\textbf{Articulación conceptual integradora}\\
-Inclusión + \DUA\ + Accesibilidad + Datos\\
-\emph{Marco teórico-metodológico para diagnóstico inclusivo y decisiones pedagógicas basadas en evidencia}};
+\node[pillar, right=of incl] (dua) {\textbf{Diseño Universal para el Aprendizaje}\\
+Múltiples medios de compromiso\\
+Múltiples medios de representación\\
+Múltiples medios de acción y expresión};
 
-\draw[arrow] (incl.south) -- ($(incl.south)+(0,-6mm)$) -| (art.west);
-\draw[arrow] (dua.south) -- (art.north);
-\draw[arrow] (acc.south) -- (art.north);
-\draw[arrow] (data.south) -- ($(data.south)+(0,-6mm)$) -| (art.east);
+\node[pillar, right=of dua] (acc) {\textbf{Accesibilidad digital}\\
+Perceptibilidad\\
+Operabilidad\\
+Comprensibilidad y robustez};
 
-\node[bigbox, below=10mm of art] (sys) {\textbf{Sistema tecnológico inteligente de diagnóstico educativo inclusivo}\\
-\emph{(arquitectura modular + analítica/\IA}};
+\node[pillar, right=of acc] (data) {\textbf{Educación basada en datos}\\
+Analítica del aprendizaje\\
+Interpretación pedagógica\\
+Mejora basada en evidencia};
+
+% ======================================================
+% ARTICULACIÓN CENTRAL
+% ======================================================
+\node[core, below=18mm of dua] (art) {\textbf{Articulación conceptual integradora}\\
+Convergencia entre inclusión educativa, \DUA, accesibilidad digital y educación basada en datos\\
+\emph{Marco teórico-metodológico para comprender la diversidad del aprendizaje y orientar decisiones pedagógicas basadas en evidencia}};
+
+\draw[arrow] (incl.south) -- ++(0,-5mm) -| ([xshift=-35mm]art.north);
+\draw[arrow] (dua.south)  -- ++(0,-5mm) -- ([xshift=-10mm]art.north);
+\draw[arrow] (acc.south)  -- ++(0,-5mm) -- ([xshift=10mm]art.north);
+\draw[arrow] (data.south) -- ++(0,-5mm) -| ([xshift=35mm]art.north);
+
+% ======================================================
+% SISTEMA COMO MATERIALIZACIÓN
+% ======================================================
+\node[wideblock, below=14mm of art] (sys) {\textbf{Sistema tecnológico inteligente de diagnóstico educativo inclusivo}\\
+Propuesta de mediación pedagógica y tecnológica orientada al diagnóstico dinámico, contextualizado, interpretable y éticamente responsable};
 
 \draw[arrow] (art) -- (sys);
 
-\node[midbox, below left=14mm and 16mm of sys] (m1) {Captura y gestión\\de datos educativos\\(instrumentos, registros, contexto)};
-\node[midbox, below=14mm of sys] (m2) {Analítica del aprendizaje\\y modelado\\(patrones, métricas, trazas)};
-\node[midbox, below right=14mm and 16mm of sys] (m3) {Motor de diagnóstico\\inclusivo\\(barreras, apoyos, perfiles)};
+% ======================================================
+% DIMENSIONES DE MATERIALIZACIÓN
+% ======================================================
+\node[block, below left=14mm and 14mm of sys] (pedagogic) {\textbf{Dimensión pedagógica}\\
+Diagnóstico orientado a apoyos\\
+Interpretación docente\\
+Recomendaciones alineadas con DUA};
 
-\node[midbox, below=10mm of m2] (m4) {Recomendaciones pedagógicas\\(alineadas con \DUA\\y apoyos diferenciados)};
-\node[midbox, left=of m4] (m5) {Panel docente / reportes\\(interpretación, seguimiento\\y toma de decisiones)};
-\node[midbox, right=of m4] (m6) {Monitoreo y mejora\\(retroalimentación, iteración DBR\\y ajuste del modelo)};
+\node[block, below=14mm of sys] (analytic) {\textbf{Dimensión analítica}\\
+Integración de datos\\
+Construcción de indicadores\\
+Identificación de patrones};
 
-\draw[arrow] (sys.south) -- ($(sys.south)+(0,-8mm)$) -| (m2.north);
-\draw[arrow] (m1.east) -- (m2.west);
-\draw[arrow] (m2.east) -- (m3.west);
-\draw[arrow] (m3.south) -- ($(m3.south)+(0,-6mm)$) -| (m4.east);
-\draw[arrow] (m4.west) -- (m5.east);
-\draw[arrow] (m5.south) -- ($(m5.south)+(0,-6mm)$) -| (m6.west);
+\node[block, below right=14mm and 14mm of sys] (ethical) {\textbf{Dimensión ética y de acceso}\\
+Privacidad y protección de datos\\
+No discriminación\\
+Accesibilidad y usabilidad};
 
-\coordinate (fbA) at ($(m6.north)+(0,6mm)$);
-\coordinate (fbB) at ($(m3.south)+(0,-10mm)$);
-\draw[arrow] (m6.north) -- (fbA) -| (fbB) -| (m3.south);
+\draw[arrow] (sys.south) -- ++(0,-6mm) -| (analytic.north);
+\draw[arrow] (sys.south) -- ++(0,-6mm) -| (pedagogic.north);
+\draw[arrow] (sys.south) -- ++(0,-6mm) -| (ethical.north);
 
-\node[box, below left=18mm and 4mm of m5] (out1) {Diagnóstico inclusivo\\dinámico y contextualizado\\(barreras, fortalezas, apoyos)};
-\node[box, below right=18mm and 4mm of m4] (out2) {Decisiones pedagógicas\\basadas en evidencia\\(equidad, inclusión,\\personalización)};
+% ======================================================
+% RESULTADO CONCEPTUAL
+% ======================================================
+\node[core, below=16mm of analytic] (result) {\textbf{Resultado teórico del modelo}\\
+El diagnóstico educativo inclusivo se concibe como un proceso continuo, multimodal, contextualizado y basado en evidencia, orientado a reconocer barreras, fortalezas, necesidades de apoyo y oportunidades de mejora pedagógica};
 
-\coordinate (pDown) at ($(m5.south)+(0,-10mm)$);
-\coordinate (pOut1) at ($(out1.north)+(0,10mm)$);
-\coordinate (pOut2) at ($(out2.north)+(0,10mm)$);
+\draw[arrow] (pedagogic.south) -- ++(0,-5mm) -| ([xshift=-30mm]result.north);
+\draw[arrow] (analytic.south)  -- (result.north);
+\draw[arrow] (ethical.south)   -- ++(0,-5mm) -| ([xshift=30mm]result.north);
 
-\draw[arrow] (m5.south) -- (pDown) -| (pOut1) -- (out1.north);
-\draw[arrow] (m5.south) -- (pDown) -| (pOut2) -- (out2.north);
-
-\node[bigbox, below=16mm of out2] (eth) {\textbf{Criterios éticos y de accesibilidad (transversales)}\\
-Privacidad y protección de datos \; $\cdot$ \; Consentimiento informado \; $\cdot$ \; Transparencia y explicabilidad\\
-No discriminación y auditoría de sesgos \; $\cdot$ \; Accesibilidad/usabilidad \; $\cdot$ \; Seguridad y responsabilidad};
-
-\coordinate (eUp) at ($(eth.north)+(0,8mm)$);
-\draw[arrow] (eth.north) -- (eUp) -| (out1.south);
-\draw[arrow] (eth.north) -- (eUp) -| (out2.south);
-
-\coordinate (eRight) at ($(eth.east)+(14mm,0)$);
-\coordinate (sRight) at ($(sys.east)+(14mm,0)$);
-\draw[arrow] (eth.east) -- (eRight) |- (sRight) -- (sys.east);
-
-\node[frame, fit=(sys) (m1) (m2) (m3) (m4) (m5) (m6)] (dbrframe) {};
-
-\node[above=2mm of dbrframe, align=center, font=\footnotesize\bfseries]
-{Ciclo iterativo de diseño, implementación y mejora\\(Design-Based Research -- DBR)};
-
-\end{tikzpicture}%
-}
-\caption{Modelo conceptual del sistema tecnológico inteligente para el diagnóstico educativo inclusivo basado en datos, fundamentado en la articulación entre inclusión educativa, \DUA, accesibilidad digital y educación basada en datos.}
-\label{fig:articulacion-marco-teorico}
+\end{tikzpicture}
+\end{adjustbox}
+\caption{Arquitectura conceptual del diagnóstico educativo inclusivo basado en datos.}
+\label{fig:arquitectura-conceptual-marco-teorico}
 \end{figure}
 
-Como se observa en la Figura \ref{fig:articulacion-marco-teorico}, el modelo conceptual se estructura a partir de pilares teóricos complementarios que, en conjunto, sustentan el diseño de un sistema tecnológico orientado al diagnóstico inclusivo. La articulación integradora permite concebir la plataforma no solo como una herramienta técnica, sino como un dispositivo pedagógico y metodológico para producir evidencia interpretable, generar recomendaciones alineadas con el \DUA\ y apoyar decisiones pedagógicas centradas en equidad, accesibilidad y atención a la diversidad.
+La Figura \ref{fig:arquitectura-conceptual-marco-teorico} muestra que el modelo conceptual no surge de un único enfoque, sino de la integración de cuatro pilares complementarios. La inclusión educativa define la finalidad del sistema; el \DUA\ aporta la lógica pedagógica para anticipar la diversidad; la accesibilidad digital establece las condiciones mínimas de participación en entornos mediados por tecnología; y la educación basada en datos ofrece los recursos analíticos necesarios para transformar información educativa en evidencia interpretable. Esta articulación conduce a un modelo de diagnóstico entendido como proceso continuo, contextualizado y orientado a apoyos pedagógicos.
 
-Con el propósito de complementar la representación anterior, se presenta una segunda figura que sintetiza la lógica funcional del sistema de diagnóstico educativo inclusivo basado en datos.
+Con base en esta arquitectura conceptual, se presenta ahora la lógica funcional del sistema, es decir, la manera en que el modelo teórico se traduce en procesos de captura de datos, análisis, generación de diagnósticos, recomendaciones pedagógicas y mejora continua.
 
-\begin{figure}[htbp]
+\begin{figure}[p]
 \centering
-\resizebox{\textwidth}{!}{%
+\begin{adjustbox}{max totalsize={\textwidth}{0.90\textheight},center}
 \begin{tikzpicture}[
-font=\footnotesize,
-node distance=12mm,
-box/.style={draw, rounded corners=2mm, align=center, inner sep=7pt, text width=4.2cm},
-big/.style={draw, rounded corners=2mm, align=center, inner sep=9pt, text width=6.8cm},
-arrow/.style={-{Stealth[length=2.6mm]}, thick}
+font=\small,
+node distance=12mm and 12mm,
+source/.style={
+  draw,
+  rounded corners=2mm,
+  align=center,
+  inner sep=7pt,
+  text width=3.8cm
+},
+process/.style={
+  draw,
+  rounded corners=2mm,
+  align=center,
+  inner sep=8pt,
+  text width=8.8cm
+},
+module/.style={
+  draw,
+  rounded corners=2mm,
+  align=center,
+  inner sep=7pt,
+  text width=4.0cm
+},
+result/.style={
+  draw,
+  rounded corners=2mm,
+  align=center,
+  inner sep=7pt,
+  text width=4.2cm
+},
+arrow/.style={
+  -{Stealth[length=2.8mm]},
+  line width=0.9pt
+},
+frame/.style={
+  draw,
+  dashed,
+  rounded corners=2mm,
+  inner sep=8pt
+}
 ]
 
-\node[box] (data1)
-{Datos pedagógicos\\
-actividades, evaluaciones};
+% ======================================================
+% FUENTES DE DATOS
+% ======================================================
+\node[source] (data1) {Datos pedagógicos\\
+Actividades\\
+Evaluaciones\\
+Desempeño observado};
 
-\node[box, right=of data1] (data2)
-{Datos de interacción\\
-plataformas educativas};
+\node[source, right=of data1] (data2) {Datos de interacción\\
+Uso de plataforma\\
+Trazas digitales\\
+Secuencias de navegación};
 
-\node[box, right=of data2] (data3)
-{Datos contextuales\\
-características del estudiante};
+\node[source, right=of data2] (data3) {Datos contextuales\\
+Características del estudiante\\
+Condiciones de acceso\\
+Entorno educativo};
 
-\node[big, below=of data2] (data_layer)
-{\textbf{Capa de datos educativos}\\
-Integración de múltiples fuentes de información};
+% ======================================================
+% CAPA DE INTEGRACIÓN
+% ======================================================
+\node[process, below=16mm of data2] (data_layer) {\textbf{Capa de integración de datos educativos}\\
+Convergencia de múltiples fuentes de información para construir una base analítica del diagnóstico educativo inclusivo};
 
-\draw[arrow] (data1) -- (data_layer);
-\draw[arrow] (data2) -- (data_layer);
-\draw[arrow] (data3) -- (data_layer);
+\draw[arrow] (data1.south) -- ++(0,-5mm) -| ([xshift=-28mm]data_layer.north);
+\draw[arrow] (data2.south) -- (data_layer.north);
+\draw[arrow] (data3.south) -- ++(0,-5mm) -| ([xshift=28mm]data_layer.north);
 
-\node[big, below=of data_layer] (analytics)
-{\textbf{Motor de analítica del aprendizaje}\\
-Procesamiento de datos educativos\\
-Identificación de patrones de aprendizaje};
+% ======================================================
+% ANALÍTICA
+% ======================================================
+\node[process, below=14mm of data_layer] (analytics) {\textbf{Motor de analítica del aprendizaje}\\
+Procesamiento, organización e interpretación de datos para identificar patrones, trayectorias, indicadores y señales relevantes del proceso de aprendizaje};
 
 \draw[arrow] (data_layer) -- (analytics);
 
-\node[box, below left=of analytics] (profile)
-{Perfil de aprendizaje\\
-del estudiante};
+% ======================================================
+% SALIDAS INTERMEDIAS
+% ======================================================
+\node[module, below left=14mm and 12mm of analytics] (profile) {Perfil de aprendizaje\\
+Ritmos\\
+Persistencia\\
+Patrones de participación};
 
-\node[box, below right=of analytics] (barriers)
-{Identificación de barreras\\
-para el aprendizaje};
+\node[module, below=14mm of analytics] (barriers) {Identificación de barreras\\
+De acceso\\
+De participación\\
+De comprensión y desempeño};
 
-\draw[arrow] (analytics) -- (profile);
-\draw[arrow] (analytics) -- (barriers);
+\node[module, below right=14mm and 12mm of analytics] (strengths) {Fortalezas y apoyos\\
+Recursos disponibles\\
+Potencialidades observadas\\
+Necesidades de acompañamiento};
 
-\node[big, below=of profile] (recommendations)
-{\textbf{Recomendaciones pedagógicas}\\
-alineadas con Diseño Universal para el Aprendizaje};
+\draw[arrow] (analytics.south) -- ++(0,-6mm) -| (profile.north);
+\draw[arrow] (analytics.south) -- (barriers.north);
+\draw[arrow] (analytics.south) -- ++(0,-6mm) -| (strengths.north);
 
-\draw[arrow] (profile) -- (recommendations);
-\draw[arrow] (barriers) |- (recommendations);
+% ======================================================
+% RECOMENDACIONES
+% ======================================================
+\node[process, below=16mm of barriers] (recommendations) {\textbf{Generación de recomendaciones pedagógicas}\\
+Traducción de la evidencia analítica en orientaciones docentes alineadas con los principios del \DUA, la accesibilidad y la atención a la diversidad};
 
-\node[big, below=of recommendations] (dashboard)
-{\textbf{Panel docente de apoyo a decisiones}\\
-Visualización de diagnósticos y recomendaciones};
+\draw[arrow] (profile.south) -- ++(0,-5mm) -| ([xshift=-24mm]recommendations.north);
+\draw[arrow] (barriers.south) -- (recommendations.north);
+\draw[arrow] (strengths.south) -- ++(0,-5mm) -| ([xshift=24mm]recommendations.north);
+
+% ======================================================
+% PANEL DOCENTE
+% ======================================================
+\node[process, below=14mm of recommendations] (dashboard) {\textbf{Panel docente de apoyo a decisiones}\\
+Visualización integrada de diagnósticos, indicadores, barreras identificadas, fortalezas observadas y recomendaciones pedagógicas interpretables};
 
 \draw[arrow] (recommendations) -- (dashboard);
 
-\node[box, below left=of dashboard] (feedback)
-{Retroalimentación docente};
+% ======================================================
+% RESULTADOS
+% ======================================================
+\node[result, below left=16mm and 18mm of dashboard] (out1) {\textbf{Diagnóstico inclusivo}\\
+Dinámico\\
+Contextualizado\\
+Pedagógicamente interpretable};
 
-\node[box, below right=of dashboard] (improvement)
-{Mejora continua del sistema};
+\node[result, below right=16mm and 18mm of dashboard] (out2) {\textbf{Decisiones pedagógicas}\\
+Basadas en evidencia\\
+Ajustes didácticos\\
+Apoyos diferenciados};
 
-\draw[arrow] (dashboard) -- (feedback);
-\draw[arrow] (dashboard) -- (improvement);
+\draw[arrow] (dashboard.south) -- ++(0,-5mm) -| (out1.north);
+\draw[arrow] (dashboard.south) -- ++(0,-5mm) -| (out2.north);
 
-\draw[arrow] (feedback) |- (analytics);
-\draw[arrow] (improvement) |- (analytics);
+% ======================================================
+% MEJORA CONTINUA
+% ======================================================
+\node[module, right=16mm of dashboard] (feedback) {Mejora continua\\
+Retroalimentación docente\\
+Refinamiento del modelo\\
+Iteración DBR};
 
-\end{tikzpicture}%
-}
-\caption{Modelo conceptual del sistema de diagnóstico educativo inclusivo basado en datos.}
-\label{fig:modelo-diagnostico-inclusivo}
+\draw[arrow] (dashboard.east) -- (feedback.west);
+\draw[arrow] (feedback.north) |- ([xshift=10mm]analytics.east);
+
+% ======================================================
+% MARCO FUNCIONAL
+% ======================================================
+\node[frame, fit=(data_layer) (analytics) (profile) (barriers) (strengths) (recommendations) (dashboard)] (mainframe) {};
+
+\node[above=6mm of mainframe, align=center, font=\small\bfseries]
+{Arquitectura funcional del sistema de diagnóstico educativo inclusivo};
+
+\end{tikzpicture}
+\end{adjustbox}
+\caption{Arquitectura funcional del sistema de diagnóstico educativo inclusivo basado en datos.}
+\label{fig:arquitectura-funcional-diagnostico}
 \end{figure}
 
-La Figura \ref{fig:modelo-diagnostico-inclusivo} muestra cómo la integración de datos pedagógicos, de interacción y contextuales alimenta el motor de analítica del aprendizaje, el cual genera perfiles, identifica barreras y orienta recomendaciones pedagógicas alineadas con el \DUA. De este modo, el sistema se configura como una mediación entre información educativa y acción pedagógica inclusiva.
+La Figura \ref{fig:arquitectura-funcional-diagnostico} representa la traducción operativa del modelo teórico. En ella se observa que el sistema parte de la integración de múltiples fuentes de datos educativos, las procesa mediante analítica del aprendizaje y produce salidas interpretables relacionadas con perfiles, barreras, fortalezas y necesidades de apoyo. Posteriormente, esta información se transforma en recomendaciones pedagógicas alineadas con el \DUA\ y se presenta en un panel docente de apoyo a decisiones. Finalmente, la retroalimentación recogida en la práctica permite refinar el sistema, en coherencia con la lógica iterativa de la Investigación Basada en el Diseño.
+
+En conjunto, ambas figuras permiten comprender que el sistema propuesto no se limita a una arquitectura técnica, sino que articula fundamentos pedagógicos, criterios de accesibilidad, principios éticos y procedimientos analíticos para construir un diagnóstico educativo inclusivo más robusto, contextualizado y útil para la práctica docente.
 
 \printbibliography[heading=subbibliography,title={Referencias (Capítulo II)}]
 

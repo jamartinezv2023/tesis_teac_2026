@@ -8,12 +8,17 @@
 \usepackage[T1]{fontenc}
 
 % =========================
-% Fuente (equivalente Times New Roman)
+% Fuente
 % =========================
 \usepackage{newtxtext,newtxmath}
-\usepackage{adjustbox}
+
 % =========================
-% Márgenes APA (2.54 cm)
+% Ajuste fino para cajas y diagramas
+% =========================
+\usepackage{adjustbox}
+
+% =========================
+% Márgenes
 % =========================
 \usepackage{geometry}
 \geometry{
@@ -24,13 +29,13 @@
 }
 
 % =========================
-% Interlineado doble (APA)
+% Interlineado
 % =========================
 \usepackage{setspace}
 \doublespacing
 
 % =========================
-% Sangría APA (1.27 cm), sin espacio extra entre párrafos
+% Formato de párrafo
 % =========================
 \setlength{\parindent}{1.27cm}
 \setlength{\parskip}{0pt}
@@ -39,6 +44,10 @@
 % Mejoras tipográficas
 % =========================
 \usepackage{microtype}
+\emergencystretch=3em
+\hfuzz=6pt
+\vbadness=10000
+\hbadness=10000
 
 % =========================
 % Figuras y tablas
@@ -50,9 +59,6 @@
   labelfont=bf
 }
 
-% =========================
-% Tablas APA: multipágina + ancho completo
-% =========================
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{tabularx}
@@ -61,20 +67,27 @@
 \keepXColumns
 \usepackage{threeparttablex}
 
-% Columna elástica alineada a la izquierda
-\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{enumitem}
 
-% Estilo uniforme para tablas
+% =========================
+% Columnas útiles para tablas
+% =========================
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% =========================
+% Configuración APA-friendly para tablas
+% =========================
 \newcommand{\APAtablesetup}{%
   \small
   \setlength{\tabcolsep}{4pt}%
-  \renewcommand{\arraystretch}{1.25}%
+  \renewcommand{\arraystretch}{1.2}%
 }
 
-% Texto automático para tablas largas
 \newcommand{\APAtablecontinued}{\footnotesize\textit{Continúa en la siguiente página.}}
 
-% Entorno reusable: longtable estilo APA
 \newenvironment{APAlongtable}[3]{%
   \APAtablesetup
   \begin{center}
@@ -88,15 +101,7 @@
 }
 
 % =========================
-% Utilidades generales
-% =========================
-\usepackage{float}
-\usepackage{placeins}
-\usepackage{enumitem}
-\usepackage{xcolor}
-
-% =========================
-% Enlaces
+% Hipervínculos y referencias
 % =========================
 \usepackage{hyperref}
 \hypersetup{
@@ -104,32 +109,18 @@
   linkcolor=black,
   citecolor=black,
   urlcolor=black,
-  pdfauthor={},
-  pdftitle={}
+  pdftitle={Tesis doctoral},
+  pdfauthor={José Martínez}
 }
 
-% =========================
-% Referencias inteligentes
-% =========================
 \usepackage[nameinlink,noabbrev]{cleveref}
-
-\crefname{chapter}{capítulo}{capítulos}
-\Crefname{chapter}{Capítulo}{Capítulos}
-
-\crefname{section}{sección}{secciones}
-\Crefname{section}{Sección}{Secciones}
-
-\crefname{subsection}{subsección}{subsecciones}
-\Crefname{subsection}{Subsección}{Subsecciones}
-
-\crefname{figure}{figura}{figuras}
-\Crefname{figure}{Figura}{Figuras}
-
-\crefname{table}{tabla}{tablas}
-\Crefname{table}{Tabla}{Tablas}
+\crefname{figure}{Figura}{Figuras}
+\crefname{table}{Tabla}{Tablas}
+\crefname{chapter}{Capítulo}{Capítulos}
+\crefname{section}{Sección}{Secciones}
 
 % =========================
-% Bibliografía APA 7
+% Bibliografía
 % =========================
 \usepackage{csquotes}
 \usepackage[
@@ -144,10 +135,10 @@
 
 \DeclareLanguageMapping{spanish}{spanish-apa}
 
-% =========================
-% Base bibliográfica global y bases por capítulo
-% =========================
+% Base global
 \addbibresource{references/global.bib}
+
+% Bases por capítulo
 \addbibresource{references/ch01.bib}
 \addbibresource{references/ch02.bib}
 \addbibresource{references/ch03.bib}
@@ -157,7 +148,7 @@
 \addbibresource{references/ch07.bib}
 
 % =========================
-% TikZ para diagramas
+% TikZ
 % =========================
 \usepackage{tikz}
 \usetikzlibrary{
@@ -169,6 +160,13 @@
 }
 
 % =========================
+% Ajustes para evitar conflictos típicos con babel y TikZ
+% =========================
+\AtBeginDocument{%
+  \shorthandoff{<>}
+}
+
+% =========================
 % Comandos consistentes
 % =========================
 \newcommand{\DUA}{Diseño Universal para el Aprendizaje (DUA)}
@@ -176,11 +174,16 @@
 \newcommand{\IA}{Inteligencia Artificial (IA)}
 
 % =========================
-% Ajustes útiles para tesis largas
+% Mejor comportamiento general
 % =========================
-\setcounter{secnumdepth}{3}
-\setcounter{tocdepth}{3}
+\raggedbottom
 
-\clubpenalty=10000
-\widowpenalty=10000
-\displaywidowpenalty=10000
+
+\usepackage{caption}
+\captionsetup{
+  font=small,
+  labelfont=bf,
+  skip=8pt
+}
+
+\usepackage{pdflscape}

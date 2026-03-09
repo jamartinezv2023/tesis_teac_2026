@@ -1,11 +1,71 @@
+% main.tex
 \documentclass[12pt,oneside]{report}
 
+% ==========================================
+% PREÁMBULO GENERAL
+% ==========================================
 \input{preamble}
 
 \begin{document}
 
+% ==========================================
+% PORTADA Y PRELIMINARES
+% ==========================================
+\pagenumbering{roman}
+
+% Si ya tienes estos archivos, déjalos.
+% Si alguno no existe todavía, coméntalo temporalmente.
+\input{frontmatter/portada}
+\input{frontmatter/resumen}
+\input{frontmatter/abstract}
+\input{frontmatter/agradecimientos}
+\input{frontmatter/abreviaturas}
+
+\tableofcontents
+\clearpage
+
+\listoffigures
+\clearpage
+
+\listoftables
+\clearpage
+
+% ==========================================
+% CUERPO DE LA TESIS
+% ==========================================
 \pagenumbering{arabic}
 
-\include{chapters/ch04}
+\input{chapters/ch01}
+\clearpage
+
+\input{chapters/ch02}
+\clearpage
+
+\input{chapters/ch03}
+\clearpage
+
+\input{chapters/ch04}
+\clearpage
+
+\input{chapters/ch05}
+\clearpage
+
+\input{chapters/ch06}
+\clearpage
+
+\input{chapters/ch07}
+\clearpage
+
+% ==========================================
+% ANEXOS Y APÉNDICES
+% ==========================================
+% Activa esto si ya tienes contenido real en estas carpetas.
+% Si todavía no los integras, déjalo comentado.
+%
+% \appendix
+% \input{appendices/apendice_a}
+% \clearpage
+% \input{annexes/anexo_a}
+% \clearpage
 
 \end{document}

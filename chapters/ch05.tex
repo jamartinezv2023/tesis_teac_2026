@@ -1,160 +1,201 @@
-% chapters/ch05.tex
 \chapter{Resultados y validación del sistema tecnológico}
 
 \begin{refsection}
 
-
 \section{Introducción}
 
-El presente capítulo presenta los resultados derivados de la implementación y evaluación del sistema tecnológico inteligente de diagnóstico educativo inclusivo basado en datos. En coherencia con el enfoque metodológico adoptado, los resultados integran evidencia cuantitativa y cualitativa obtenida durante la fase de implementación piloto del sistema en un contexto educativo real.
+El presente capítulo expone los resultados derivados de la implementación y evaluación del sistema tecnológico inteligente de diagnóstico educativo inclusivo basado en datos. En coherencia con el enfoque metodológico adoptado en esta investigación, los hallazgos integran evidencia cuantitativa y cualitativa obtenida durante la fase de implementación piloto del sistema en un contexto educativo real.
 
-El objetivo de este capítulo es analizar el desempeño del sistema, evaluar su utilidad pedagógica y examinar su contribución al diagnóstico educativo inclusivo. Asimismo, se examina la pertinencia del modelo conceptual propuesto y se analizan las percepciones de los actores educativos respecto al uso de la plataforma.
+El propósito central de este capítulo es analizar el desempeño del sistema, valorar su utilidad pedagógica y examinar su contribución al diagnóstico educativo inclusivo. De manera complementaria, se estudia la pertinencia del modelo conceptual propuesto y se interpretan las percepciones de los actores educativos respecto al uso de la plataforma.
 
-La presentación de los resultados se organiza en cinco apartados principales: (i) resultados del funcionamiento técnico del sistema, (ii) análisis de los datos educativos generados por la plataforma, (iii) evaluación de la utilidad pedagógica del sistema, (iv) análisis de accesibilidad y pertinencia inclusiva, y (v) proceso de validación y refinamiento del sistema bajo el enfoque de Investigación Basada en el Diseño.
+La presentación de los resultados se organiza en cinco apartados principales: (i) resultados del funcionamiento técnico del sistema, (ii) análisis de los datos educativos generados por la plataforma, (iii) evaluación de la utilidad pedagógica del sistema, (iv) análisis de accesibilidad y pertinencia inclusiva, y (v) proceso de validación y refinamiento del sistema bajo el enfoque de \DBR.
 
 \section{Resultados del funcionamiento del sistema}
 
-Durante la fase de implementación piloto se evaluó el funcionamiento general del sistema tecnológico en términos de estabilidad técnica, capacidad de procesamiento de datos educativos y generación de diagnósticos pedagógicos interpretables.
+Durante la fase de implementación piloto se evaluó el funcionamiento general del sistema tecnológico en términos de estabilidad técnica, capacidad de procesamiento de datos educativos y generación de diagnósticos pedagógicos interpretables. Esta evaluación permitió verificar si la arquitectura propuesta respondía adecuadamente a los requerimientos funcionales previstos y si el flujo de datos se mantenía consistente desde la captura de información hasta la producción de reportes.
 
-Los registros del sistema indican que la plataforma logró ejecutar correctamente los procesos de captura de datos, procesamiento analítico y generación de reportes diagnósticos. La Figura \ref{fig:flujo-diagnostico} ilustra el flujo general de procesamiento del sistema durante la generación de diagnósticos educativos.
+Los registros del sistema indican que la plataforma logró ejecutar correctamente los procesos de captura de datos, procesamiento analítico y generación de salidas diagnósticas. En términos generales, el sistema operó como un entorno capaz de transformar información educativa heterogénea en resultados interpretables y potencialmente útiles para apoyar decisiones pedagógicas. Esta orientación resulta coherente con los enfoques contemporáneos de analítica del aprendizaje, que destacan la importancia de convertir los datos en conocimiento accionable para la mejora educativa \parencite{siemenslong2011,greller2012,ferguson2012}.
+
+La Figura \ref{fig:flujo-diagnostico} representa el flujo general de procesamiento del sistema durante la generación de diagnósticos educativos.
 
 \begin{figure}[htbp]
 \centering
+\begin{adjustbox}{max totalsize={0.78\textwidth}{0.55\textheight},center}
 \begin{tikzpicture}[
-node distance=15mm,
-box/.style={draw, rounded corners, align=center, minimum width=3.5cm, minimum height=1cm},
-arrow/.style={->, thick}
+font=\small,
+node distance=12mm,
+box/.style={
+  draw,
+  rounded corners=2mm,
+  align=center,
+  inner sep=8pt,
+  text width=6.8cm
+},
+arrow/.style={
+  -{Stealth[length=2.8mm]},
+  line width=0.9pt
+}
 ]
 
-\node[box] (input) {Captura de datos};
-\node[box, below=of input] (processing) {Procesamiento y analítica};
-\node[box, below=of processing] (diagnosis) {Diagnóstico educativo};
-\node[box, below=of diagnosis] (reports) {Generación de reportes};
+\node[box] (input) {Captura de datos educativos};
+\node[box, below=of input] (processing) {Procesamiento y analítica del aprendizaje};
+\node[box, below=of processing] (diagnosis) {Diagnóstico educativo inclusivo};
+\node[box, below=of diagnosis] (reports) {Generación de reportes y salidas pedagógicas};
 
 \draw[arrow] (input) -- (processing);
 \draw[arrow] (processing) -- (diagnosis);
 \draw[arrow] (diagnosis) -- (reports);
 
 \end{tikzpicture}
-
+\end{adjustbox}
 \caption{Flujo de procesamiento del diagnóstico educativo en el sistema.}
 \label{fig:flujo-diagnostico}
 \end{figure}
 
-Los resultados indican que el sistema fue capaz de:
+Como se observa en la Figura \ref{fig:flujo-diagnostico}, la lógica funcional del sistema se organiza en una secuencia progresiva que inicia con la captura de información educativa, continúa con el procesamiento analítico de los datos y culmina en la generación de diagnósticos y reportes. Esta estructura permitió mantener trazabilidad entre las entradas del sistema y las salidas pedagógicas producidas.
+
+En términos operativos, los resultados muestran que el sistema fue capaz de:
 
 \begin{itemize}
-\item registrar información educativa de manera estructurada,
-\item procesar indicadores derivados de analítica del aprendizaje,
-\item generar diagnósticos educativos interpretables para docentes.
+\item registrar información educativa de manera estructurada y consistente;
+\item procesar indicadores derivados de analítica del aprendizaje;
+\item generar diagnósticos educativos interpretables para el profesorado;
+\item producir reportes con potencial de uso en procesos de seguimiento pedagógico.
 \end{itemize}
+
+En conjunto, estos resultados evidencian que el sistema cuenta con un nivel inicial de viabilidad técnica suficiente para su uso en escenarios educativos reales, aunque con oportunidades de mejora propias de un proceso iterativo de diseño e implementación.
 
 \section{Análisis de los datos educativos generados por el sistema}
 
-El sistema permitió capturar y analizar diferentes tipos de datos educativos relacionados con la interacción de los estudiantes con los instrumentos digitales y las actividades pedagógicas.
+El sistema permitió capturar y analizar diferentes tipos de datos educativos relacionados con la interacción de los estudiantes con instrumentos digitales, actividades pedagógicas y recursos de apoyo. Desde una perspectiva de educación basada en datos, esta capacidad resulta relevante porque permite construir una visión más amplia de los procesos de aprendizaje, superando enfoques centrados únicamente en resultados finales o en mediciones aisladas \parencite{siemenslong2011,greller2012}.
 
-Entre los indicadores analizados se incluyen:
+Entre los indicadores analizados durante la fase piloto se incluyen los siguientes:
 
 \begin{itemize}
-\item niveles de participación en actividades educativas,
-\item patrones de interacción con recursos digitales,
-\item indicadores de persistencia en las tareas,
+\item niveles de participación en actividades educativas;
+\item patrones de interacción con recursos digitales;
+\item indicadores de persistencia en las tareas;
 \item variaciones en el ritmo de aprendizaje.
 \end{itemize}
 
-La Tabla \ref{tab:indicadores-aprendizaje} presenta algunos de los indicadores analizados durante la fase piloto.
+La Tabla \ref{tab:indicadores-aprendizaje} sintetiza algunos de los principales indicadores analizados durante la implementación piloto del sistema.
 
 \begin{table}[htbp]
 \centering
-\begin{tabular}{lll}
+\APAtablesetup
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{3.0cm}Y>{\raggedright\arraybackslash}p{4.0cm}@{}}
 \toprule
-Indicador & Descripción & Fuente de datos \\
+\textbf{Indicador} & \textbf{Descripción} & \textbf{Fuente de datos} \\
 \midrule
-Participación & Frecuencia de interacción con actividades & Registros del sistema \\
-Persistencia & Continuidad en la resolución de tareas & Registros de uso \\
-Progreso & Avance en actividades educativas & Resultados de instrumentos \\
-Interacción & Uso de recursos educativos & Logs de interacción \\
+Participación & Frecuencia e intensidad de interacción del estudiante con actividades formativas propuestas en la plataforma. & Registros del sistema \\
+Persistencia & Continuidad mostrada en la resolución de tareas, permanencia en el proceso y finalización de actividades. & Registros de uso \\
+Progreso & Avance observado en el desarrollo de actividades, cuestionarios e instrumentos educativos. & Resultados de instrumentos \\
+Interacción & Uso de recursos educativos, navegación por secciones y consulta de contenidos de apoyo. & Logs de interacción \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \caption{Indicadores derivados de analítica del aprendizaje.}
 \label{tab:indicadores-aprendizaje}
 \end{table}
 
-El análisis de estos indicadores permitió generar perfiles educativos preliminares que contribuyen a comprender la diversidad de condiciones de aprendizaje presentes en el contexto estudiado.
+El análisis de estos indicadores permitió construir perfiles educativos preliminares orientados a comprender mejor la diversidad de condiciones de aprendizaje presentes en el contexto estudiado. No se trata de clasificaciones rígidas del estudiantado, sino de aproximaciones diagnósticas que facilitan una lectura más contextualizada de los procesos educativos.
+
+Desde esta perspectiva, la analítica del aprendizaje se utilizó como un mecanismo para identificar tendencias, patrones de participación y comportamientos relevantes para la interpretación pedagógica. En lugar de reducir el análisis a métricas aisladas, el sistema procuró articular múltiples fuentes de información con el fin de aportar una comprensión más rica del aprendizaje, en línea con lo propuesto por la literatura especializada \parencite{siemenslong2011,ferguson2012}.
 
 \section{Evaluación de la utilidad pedagógica del sistema}
 
-Uno de los objetivos centrales de la investigación consiste en evaluar la utilidad pedagógica del sistema para apoyar la toma de decisiones educativas.
+Uno de los objetivos centrales de la investigación consistió en valorar la utilidad pedagógica del sistema como herramienta de apoyo a la toma de decisiones educativas. En este sentido, la evaluación no se limitó a verificar el correcto funcionamiento técnico de la plataforma, sino que buscó determinar hasta qué punto la información generada resultaba significativa para el profesorado.
 
-Los docentes participantes reportaron que el sistema facilita:
+Los docentes participantes señalaron que el sistema facilita especialmente tres procesos: la visualización de información educativa relevante, la identificación de patrones de aprendizaje y la planificación de estrategias pedagógicas diferenciadas. Estos hallazgos son consistentes con enfoques de evaluación orientados al uso, según los cuales el valor de un sistema o intervención no depende únicamente de su diseño, sino también de la utilidad práctica que ofrece a quienes lo emplean \parencite{patton2015,rossi2018}.
 
-\begin{itemize}
-\item la visualización de información educativa relevante,
-\item la identificación de patrones de aprendizaje,
-\item la planificación de estrategias pedagógicas diferenciadas.
-\end{itemize}
-
-La Figura \ref{fig:utilidad-docente} resume la percepción docente sobre la utilidad del sistema en diferentes dimensiones pedagógicas.
+La Figura \ref{fig:utilidad-docente} sintetiza las principales dimensiones de utilidad pedagógica identificadas por los docentes durante la fase piloto.
 
 \begin{figure}[htbp]
 \centering
+\begin{adjustbox}{max totalsize={0.78\textwidth}{0.55\textheight},center}
 \begin{tikzpicture}[
-node distance=12mm,
-box/.style={draw, rounded corners, align=center, minimum width=4cm, minimum height=1cm}
+font=\small,
+node distance=11mm,
+box/.style={
+  draw,
+  rounded corners=2mm,
+  align=center,
+  inner sep=8pt,
+  text width=7.2cm
+},
+arrow/.style={
+  -{Stealth[length=2.8mm]},
+  line width=0.9pt
+}
 ]
 
-\node[box] (analysis) {Comprensión del aprendizaje};
-\node[box, below=of analysis] (planning) {Apoyo a planificación};
-\node[box, below=of planning] (decision) {Toma de decisiones pedagógicas};
+\node[box] (analysis) {Comprensión de patrones y condiciones del aprendizaje};
+\node[box, below=of analysis] (planning) {Apoyo a la planificación de estrategias pedagógicas};
+\node[box, below=of planning] (decision) {Fortalecimiento de la toma de decisiones pedagógicas};
+
+\draw[arrow] (analysis) -- (planning);
+\draw[arrow] (planning) -- (decision);
 
 \end{tikzpicture}
-
+\end{adjustbox}
 \caption{Dimensiones de utilidad pedagógica del sistema según percepción docente.}
 \label{fig:utilidad-docente}
 \end{figure}
 
-Estos resultados sugieren que la plataforma puede contribuir a fortalecer prácticas pedagógicas basadas en evidencia educativa.
+Como se aprecia en la Figura \ref{fig:utilidad-docente}, la utilidad pedagógica del sistema no se restringe a la entrega de información descriptiva, sino que se proyecta hacia el apoyo a procesos de interpretación y acción educativa. Los docentes percibieron que la plataforma puede contribuir a comprender mejor el aprendizaje del estudiantado y, a partir de ello, diseñar respuestas pedagógicas más pertinentes.
+
+En consecuencia, los resultados sugieren que el sistema posee potencial para fortalecer prácticas pedagógicas basadas en evidencia educativa, especialmente cuando los reportes son interpretados en diálogo con el conocimiento profesional del docente y con las particularidades del contexto institucional.
 
 \section{Accesibilidad y pertinencia inclusiva}
 
-Un aspecto central del sistema consiste en su orientación hacia el diagnóstico educativo inclusivo.
+Un componente esencial del sistema consiste en su orientación hacia el diagnóstico educativo inclusivo. Por esta razón, la evaluación de resultados incluyó la revisión de aspectos relacionados con accesibilidad, pertinencia pedagógica e identificación de barreras para el aprendizaje.
 
-El análisis de la implementación permitió identificar varios elementos relevantes:
+El análisis de la implementación permitió identificar varios elementos relevantes. En primer lugar, el sistema facilitó la identificación de barreras que pueden incidir en los procesos de participación y aprendizaje. En segundo lugar, permitió visibilizar fortalezas y necesidades educativas sin reducir el análisis a categorías deficitarias. En tercer lugar, generó recomendaciones pedagógicas alineadas con los principios del \DUA, favoreciendo una lectura más flexible y formativa del diagnóstico.
 
-\begin{itemize}
-\item el sistema facilita la identificación de barreras para el aprendizaje,
-\item permite visualizar fortalezas y necesidades educativas de los estudiantes,
-\item ofrece recomendaciones pedagógicas alineadas con los principios del Diseño Universal para el Aprendizaje.
-\end{itemize}
+Desde una perspectiva ética y de inclusión, estos resultados son importantes porque muestran que el sistema no se orienta únicamente a clasificar datos, sino a apoyar decisiones con potencial de contribuir a prácticas más equitativas. Esta orientación resulta coherente con recomendaciones internacionales sobre el diseño y uso responsable de sistemas basados en inteligencia artificial y datos educativos \parencite{unesco2021}.
 
-Asimismo, las pruebas de usabilidad y accesibilidad permitieron identificar oportunidades de mejora en aspectos como:
+No obstante, la implementación también permitió reconocer oportunidades de mejora vinculadas con la experiencia de uso. Entre las principales se destacan las siguientes:
 
 \begin{itemize}
-\item simplificación de interfaces,
-\item claridad en la presentación de reportes,
-\item adaptación de la navegación a distintos perfiles de usuario.
+\item simplificación de algunas interfaces;
+\item mayor claridad en la presentación visual de los reportes;
+\item adaptación de la navegación a distintos perfiles de usuario;
+\item fortalecimiento de criterios de accesibilidad en determinadas vistas del sistema.
 \end{itemize}
+
+Estos hallazgos son coherentes con enfoques de diseño centrado en el usuario, según los cuales la calidad de una solución tecnológica depende en gran medida de su capacidad para responder a las necesidades, expectativas y limitaciones de quienes interactúan con ella \parencite{norman2013}. En consecuencia, la accesibilidad y la pertinencia inclusiva deben entenderse como dimensiones transversales del sistema y no como características accesorias.
 
 \section{Validación del sistema bajo el enfoque DBR}
 
-En coherencia con el enfoque de Investigación Basada en el Diseño, el sistema fue sometido a procesos iterativos de evaluación y refinamiento.
+En coherencia con el enfoque de \DBR, el sistema fue sometido a procesos iterativos de evaluación, análisis y refinamiento. Esta lógica permitió utilizar la implementación no solo como instancia de prueba técnica, sino también como oportunidad de aprendizaje investigativo y mejora progresiva del diseño.
 
 Durante el proceso se identificaron mejoras relacionadas con:
 
 \begin{itemize}
-\item la interpretación pedagógica de los reportes,
-\item la organización de los indicadores analíticos,
-\item la claridad de las recomendaciones pedagógicas.
+\item la interpretación pedagógica de los reportes;
+\item la organización de los indicadores analíticos;
+\item la claridad y pertinencia de las recomendaciones pedagógicas;
+\item la legibilidad de las visualizaciones producidas por el sistema.
 \end{itemize}
 
-La Figura \ref{fig:ciclo-validacion} presenta el proceso iterativo de validación y mejora del sistema.
+La Figura \ref{fig:ciclo-validacion} representa el proceso iterativo de validación y mejora del sistema bajo el enfoque DBR.
 
 \begin{figure}[htbp]
 \centering
+\begin{adjustbox}{max totalsize={0.82\textwidth}{0.55\textheight},center}
 \begin{tikzpicture}[
-node distance=25mm,
-box/.style={draw, rounded corners, align=center, minimum width=3.5cm, minimum height=1cm},
-arrow/.style={->, thick}
+font=\small,
+node distance=20mm and 22mm,
+box/.style={
+  draw,
+  rounded corners=2mm,
+  align=center,
+  inner sep=8pt,
+  text width=4.0cm
+},
+arrow/.style={
+  -{Stealth[length=2.8mm]},
+  line width=0.9pt
+}
 ]
 
 \node[box] (design) {Diseño};
@@ -168,25 +209,30 @@ arrow/.style={->, thick}
 \draw[arrow] (refinement) -- (design);
 
 \end{tikzpicture}
-
-\caption{Proceso iterativo de validación del sistema bajo DBR.}
+\end{adjustbox}
+\caption{Proceso iterativo de validación del sistema bajo \DBR.}
 \label{fig:ciclo-validacion}
 \end{figure}
 
-Este proceso permitió mejorar progresivamente el sistema y fortalecer su alineación con los principios de inclusión educativa y educación basada en datos.
+Como se aprecia en la Figura \ref{fig:ciclo-validacion}, la validación del sistema no fue concebida como una etapa terminal y cerrada, sino como un ciclo continuo de diseño, implementación, evaluación y refinamiento. Esta lógica resulta consistente con la naturaleza de la \DBR, que busca generar conocimiento útil a partir de la interacción entre teoría, diseño e intervención en contextos reales.
+
+En este sentido, la validación permitió no solo mejorar progresivamente el sistema, sino también fortalecer su alineación con los principios de inclusión educativa, educación basada en datos y toma de decisiones pedagógicas fundamentadas en evidencia.
 
 \section{Síntesis de resultados}
 
-En síntesis, los resultados obtenidos permiten afirmar que el sistema tecnológico propuesto:
+En conjunto, los resultados obtenidos permiten sostener que el sistema tecnológico propuesto presenta condiciones favorables de viabilidad técnica, utilidad pedagógica y pertinencia inclusiva en el contexto de implementación analizado.
+
+De manera sintética, los principales hallazgos permiten afirmar que el sistema:
 
 \begin{itemize}
-\item es técnicamente viable en contextos educativos reales,
-\item permite capturar y analizar datos educativos relevantes,
-\item facilita la generación de diagnósticos educativos interpretables,
-\item contribuye a la toma de decisiones pedagógicas informadas.
+\item es técnicamente viable para su implementación inicial en contextos educativos reales;
+\item permite capturar y analizar datos educativos relevantes desde una perspectiva pedagógica;
+\item facilita la generación de diagnósticos educativos interpretables;
+\item contribuye a la toma de decisiones pedagógicas informadas;
+\item ofrece una base inicial para procesos de mejora orientados a la inclusión y la accesibilidad.
 \end{itemize}
 
-Estos resultados constituyen la base empírica para la discusión de los aportes científicos de la investigación, que se presenta en el capítulo siguiente.
+Estos resultados constituyen la base empírica para la discusión de los aportes científicos de la investigación, la cual se desarrolla en el capítulo siguiente. Asimismo, proporcionan evidencia de que el sistema puede funcionar como una mediación tecnológica útil para transformar datos educativos en conocimiento pedagógico relevante, sin perder de vista las exigencias de interpretación, inclusión y mejora continua que demanda el contexto educativo contemporáneo \parencite{siemenslong2011,unesco2021,rossi2018}.
 
 \printbibliography[heading=subbibliography,title={Referencias (Capítulo V)}]
 
