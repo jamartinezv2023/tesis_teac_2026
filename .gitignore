@@ -1,27 +1,66 @@
+# =========================================
 # Archivos temporales de LaTeX
+# =========================================
+
 *.aux
 *.bbl
 *.bcf
 *.blg
+*.brf
 *.fdb_latexmk
 *.fls
 *.lof
 *.log
 *.lot
+*.nav
 *.out
 *.run.xml
+*.snm
 *.synctex.gz
 *.toc
 *.xdv
-
-# Archivos temporales extra
-*.nav
-*.snm
 *.vrb
+
+# =========================================
+# Archivos de respaldo
+# =========================================
+
 *.backup
 *.bak
+*.tmp
 *.swp
 
-# PDFs de compilación (opcional)
-# Si desea versionar el PDF final, comente esta línea
-*.pdf
+# =========================================
+# Carpetas generadas por compilación
+# =========================================
+
+_build/
+build/
+out/
+
+# =========================================
+# Archivos de sistema
+# =========================================
+
+.DS_Store
+Thumbs.db
+
+# =========================================
+# PDFs generados
+# (Comente esta línea si desea versionar el PDF final)
+# =========================================
+
+# *.pdf
+
+# =========================================
+# Archivos de editores
+# =========================================
+
+.vscode/
+.idea/
+
+# =========================================
+# Archivos de Overleaf
+# =========================================
+
+output.pdf
